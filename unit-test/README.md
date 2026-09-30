@@ -40,14 +40,13 @@ directory and target name may differ.)
 | path | what it is | written by |
 |---|---|---|
 | `covmock/<unit>/tests/` | UT Assert cases, one file per function under test | covmock |
-| `covmock/<unit>/mocks/` | cFS UT stubs covmock needed, and output-parameter handlers | covmock |
+| `covmock/<unit>/mocks/` | stubs for every function the unit calls that nothing else stubs -- ci_lab's other source files -- plus output-parameter handlers (`--link-closure`) | covmock |
 | `covmock/<unit>/covmock.cmake` | attaches the above to the runner (`covmock_add_to_target`) | covmock |
 | `covmock/<unit>/manifest.json` | traceability: each case, its coverage gap, its review state | covmock |
-| `stubs/` | stubs for ci_lab's own functions, for the runners that do not compile them | OSAL's `generate_stubs.pl` |
 | `support/<unit>_setup.c` | each runner's `UtTest_Setup` | `support/make_setup.sh`, from the manifest |
 | `support/ci_lab_global.c` | `CI_LAB_Global` for runners that do not compile `ci_lab_app.c` | hand |
 | `annotations/*.toml` | `covmock:test` specifications: the intent coverage cannot supply | hand |
-| `CMakeLists.txt` | the runners; optionally seeds covmock's configuration | hand |
+| `CMakeLists.txt` | the runners; optionally seeds covmock's configuration. No stub library: each runner's stubs are covmock's | hand |
 
 The annotations are the only hand-written test input: what each case calls,
 what its stubs return, and what it asserts. They are deliberately a

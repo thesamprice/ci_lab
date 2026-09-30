@@ -18,28 +18,33 @@
       "cfs-utstub"
     ]
   },
-  "manifest_id": "ce1819b382f0b79e44ddd50593536656",
+  "manifest_id": "d8cf2cce42277b4298da0e6869831f73",
   "marker": "covmock:generated",
   "outputs": [
     {
       "kind": "build_fragment",
       "path": "covmock.cmake",
-      "sha256": "37db5c81568ddb7b83ed9996c365658d17c249250704c0105142562462bb56c8"
+      "sha256": "7d3252bab0cc6ad399e805b6785e702a0a7d6f81ff2658c355affdb717d9ef3c"
+    },
+    {
+      "kind": "mock_source",
+      "path": "mocks/mock_cfs_utstub.c",
+      "sha256": "3a45d8d1d5e1b590f4e8c36bb267c87366f927e3e22d9f3f363eeaf0251667b6"
     },
     {
       "kind": "mock_header",
       "path": "mocks/mock_cfs_utstub.h",
-      "sha256": "096492bd0d11ed0fd11451401bda0da7666fb3c37b46f5305945bc2731d64b3e"
+      "sha256": "e231875c28e79f9f3c399ad0d19e70ca5ef041f456a9ac612ec168d76a460372"
     },
     {
       "kind": "case",
       "path": "tests/test_CI_LAB_DecodeInputMessage.c",
-      "sha256": "78edd2c3be4961b88bb2a7692afc95d57164d50ee4c7ca05a331db6c0877d20b"
+      "sha256": "f30f214448a2949d63c141367e3e64558a31925a9425e3c743f11cfe18a7ff2a"
     },
     {
       "kind": "case",
       "path": "tests/test_CI_LAB_GetInputBuffer.c",
-      "sha256": "966bf6ab078f551503be232121261f45ed64b83f980f896bc11eed5da096445d"
+      "sha256": "5c6478c88d93a9de9b5e3659dce8b1ddcaf12dd9743c5a3f8e1203f20786b07b"
     }
   ],
   "refusals": [],

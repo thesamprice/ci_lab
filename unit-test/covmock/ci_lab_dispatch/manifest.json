@@ -18,33 +18,33 @@
       "cfs-utstub"
     ]
   },
-  "manifest_id": "647788aa524607ac65071e779ae34c6f",
+  "manifest_id": "3409b9d546ce92ab4a255bdd98943b34",
   "marker": "covmock:generated",
   "outputs": [
     {
       "kind": "build_fragment",
       "path": "covmock.cmake",
-      "sha256": "91f15081a002d5baffd324183e642100dcb1ecf3a65fe70e110dea5bd491a285"
+      "sha256": "2089352e9fc04f7de507dfa03a5b92e25094f2289e270f031f750bada93c9b99"
     },
     {
       "kind": "mock_source",
       "path": "mocks/mock_cfs_utstub.c",
-      "sha256": "5be93be096aeddf97c8f916418f52f4cf6c07b0bc714e5dfde84152bd992caf2"
+      "sha256": "88727d56f7f4c7cd260f6a9c169290f6dae051e467beb5459ee6b592668f00b2"
     },
     {
       "kind": "mock_header",
       "path": "mocks/mock_cfs_utstub.h",
-      "sha256": "06295cf3c768490513d4a2ecbfa8385d6b2d864f66d549a0181cd36eeccc69ce"
+      "sha256": "4ab9741072efc3350b962d5a69f78235bb9f6cf1b33d38566ee8a79877f0f456"
     },
     {
       "kind": "case",
       "path": "tests/test_CI_LAB_ProcessGroundCommand.c",
-      "sha256": "b9471f7804f915d7b08c878ea2f74c0f64ddc0e5c8bd02b80ddc8318545faa2f"
+      "sha256": "3865f40e8df4272154f5210bddb8c4c6a48a0f47c78c88acb94c0f38893177e4"
     },
     {
       "kind": "case",
       "path": "tests/test_CI_LAB_VerifyCmdLength.c",
-      "sha256": "1df49be00964364ea0f6b79af7189edb8b79c7c17bcd89bde7f6ffaf4ebcc1b9"
+      "sha256": "be71d7620a9cf39a8c2c52a79b0754132aef91b4c4a513797f455fbe056b63a3"
     }
   ],
   "refusals": [],

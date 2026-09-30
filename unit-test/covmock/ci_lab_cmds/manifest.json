@@ -18,38 +18,43 @@
       "cfs-utstub"
     ]
   },
-  "manifest_id": "66f38c8918a1c789876e11fcb5103c49",
+  "manifest_id": "886fd2488093e8ec40a294f3b14b11b3",
   "marker": "covmock:generated",
   "outputs": [
     {
       "kind": "build_fragment",
       "path": "covmock.cmake",
-      "sha256": "0dd5ff21b6ac9314046712b6f43d84e1b6d227c833b59f8e4cb171eeeaefc8ca"
+      "sha256": "72e058c6126cb12f86a22a2104b53d2bb50427082eea15d05d463a737a9075e0"
+    },
+    {
+      "kind": "mock_source",
+      "path": "mocks/mock_cfs_utstub.c",
+      "sha256": "392f846dcd6b919593f0260fae304c5a6410ab438e6e1e7a6b3b40afb9ec2662"
     },
     {
       "kind": "mock_header",
       "path": "mocks/mock_cfs_utstub.h",
-      "sha256": "d8b652c0b5c77fceab690581f8bd3666d840d63f2df25790be0975aad1e808e6"
+      "sha256": "d3c7da6520363ad179585c02b242e462ad6b530a739925a22ad73d7caf98fcbf"
     },
     {
       "kind": "case",
       "path": "tests/test_CI_LAB_NoopCmd.c",
-      "sha256": "4f518722d6c6dea821892033c37d23dfc1262083c214ba5d76346e3e628107c8"
+      "sha256": "8156aede32b788045a2877dd2f2bf61b049ede34abc402403c81382076f83c77"
     },
     {
       "kind": "case",
       "path": "tests/test_CI_LAB_ReadUplinkCmd.c",
-      "sha256": "4876ddb3af16bc1869edc53aae1a62de917a96986383dfbc26101bea9971027b"
+      "sha256": "46ded592c5f17cf8e43fbd3fc7abe3b5f9815c169922429ecf424365b7600d03"
     },
     {
       "kind": "case",
       "path": "tests/test_CI_LAB_ResetCountersCmd.c",
-      "sha256": "b9a803383ea8bef910b7dc69c8e81f1859ad8a8ce4df8f21341a7a3b411014ac"
+      "sha256": "22163c0d4b522f8337eda6af14160db23ebbf327e72632824b86fe2ad93fe98d"
     },
     {
       "kind": "case",
       "path": "tests/test_CI_LAB_SendHkCmd.c",
-      "sha256": "0992410ebf49e51d5c7eb6b39778745ccbd9ace2051d048273605e054c804c75"
+      "sha256": "6bb675c86dd0fa1ab50d5c380d41b7c11a0dc6c71273576d85702c6018a7802c"
     }
   ],
   "refusals": [],

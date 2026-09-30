@@ -17,16 +17,6 @@ if (covmock_FOUND)
     COVERAGE    ${CMAKE_BINARY_DIR}/ci_lab-baseline.info)
 endif()
 
-# Stubs for ci_lab's own functions, one file per header (written by OSAL's
-# generate_stubs.pl). A static library, so each runner pulls in only the
-# stubs for the files it does not compile for real.
-add_cfe_coverage_stubs(ci_lab
-  stubs/ci_lab_app_stubs.c
-  stubs/ci_lab_cmds_stubs.c
-  stubs/ci_lab_decode_stubs.c
-  stubs/ci_lab_dispatch_stubs.c
-)
-
 foreach(SRCFILE ${APP_SRC_FILES})
   get_filename_component(UNIT_NAME "${SRCFILE}" NAME_WE)
   set(RUNNER coverage-ci_lab-${UNIT_NAME}-testrunner)
@@ -40,8 +30,9 @@ foreach(SRCFILE ${APP_SRC_FILES})
     file(WRITE ${SETUP} "void UtTest_Setup(void) {}\n")
   endif()
 
+  # covmock stubs everything else the unit calls (--link-closure), including
+  # the other ci_lab sources, so no stub library is linked here.
   add_cfe_coverage_test(ci_lab ${UNIT_NAME} ${SETUP} ../${SRCFILE})
-  target_link_libraries(${RUNNER} coverage-ci_lab-stubs)
 
   if (EXISTS ${GENERATED}/covmock.cmake)
     include(${GENERATED}/covmock.cmake)
