@@ -1,0 +1,34 @@
+# covmock:test specifications for ci_lab_cmds.c. Kept beside the tests, not in
+# the flight source.
+
+[[test]]
+name = "noop_counts_and_reports"
+target = "function=CI_LAB_NoopCmd line=41"
+invoke = "CI_LAB_NoopCmd(NULL)"
+expect-return = "CFE_SUCCESS"
+expect-call = ["CFE_EVS_SendEvent count=1"]
+reviewed = true
+
+[[test]]
+name = "reset_counters_reports"
+target = "function=CI_LAB_ResetCountersCmd line=62"
+invoke = "CI_LAB_ResetCountersCmd(NULL)"
+expect-return = "CFE_SUCCESS"
+expect-call = ["CFE_EVS_SendEvent count=1", "CI_LAB_ResetCounters_Internal count=1"]
+reviewed = true
+
+[[test]]
+name = "send_hk_transmits"
+target = "function=CI_LAB_SendHkCmd line=78"
+invoke = "CI_LAB_SendHkCmd(NULL)"
+expect-return = "CFE_SUCCESS"
+expect-call = ["CFE_SB_TransmitMsg count=1"]
+reviewed = true
+
+[[test]]
+name = "read_uplink_cmd_reads"
+target = "function=CI_LAB_ReadUplinkCmd line=87"
+invoke = "CI_LAB_ReadUplinkCmd(NULL)"
+expect-return = "CFE_SUCCESS"
+expect-call = ["CI_LAB_ReadUpLink count=1"]
+reviewed = true

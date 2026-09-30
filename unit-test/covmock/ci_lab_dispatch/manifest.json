@@ -1,0 +1,298 @@
+{
+  "counts": {
+    "active": 2,
+    "by_review_state": {
+      "reviewed": 2,
+      "scaffold": 0,
+      "specified": 0
+    },
+    "cases": 2,
+    "refused": 0
+  },
+  "generation": {
+    "activate_reviewed_only": true,
+    "compile_commands": "build-cilabut/native/default_cpu1/compile_commands.json",
+    "coverage": "build-cilabut/native/default_cpu1/ci_lab-baseline.info",
+    "framework": "cfs-utassert",
+    "mock_backends": [
+      "cfs-utstub"
+    ]
+  },
+  "manifest_id": "3409b9d546ce92ab4a255bdd98943b34",
+  "marker": "covmock:generated",
+  "outputs": [
+    {
+      "kind": "build_fragment",
+      "path": "covmock.cmake",
+      "sha256": "2089352e9fc04f7de507dfa03a5b92e25094f2289e270f031f750bada93c9b99"
+    },
+    {
+      "kind": "mock_source",
+      "path": "mocks/mock_cfs_utstub.c",
+      "sha256": "88727d56f7f4c7cd260f6a9c169290f6dae051e467beb5459ee6b592668f00b2"
+    },
+    {
+      "kind": "mock_header",
+      "path": "mocks/mock_cfs_utstub.h",
+      "sha256": "4ab9741072efc3350b962d5a69f78235bb9f6cf1b33d38566ee8a79877f0f456"
+    },
+    {
+      "kind": "case",
+      "path": "tests/test_CI_LAB_ProcessGroundCommand.c",
+      "sha256": "3865f40e8df4272154f5210bddb8c4c6a48a0f47c78c88acb94c0f38893177e4"
+    },
+    {
+      "kind": "case",
+      "path": "tests/test_CI_LAB_VerifyCmdLength.c",
+      "sha256": "be71d7620a9cf39a8c2c52a79b0754132aef91b4c4a513797f455fbe056b63a3"
+    }
+  ],
+  "refusals": [],
+  "schema": "covmock.manifest/v1",
+  "tests": [
+    {
+      "active": true,
+      "annotation": {
+        "location": "apps/ci_lab/unit-test/annotations/ci_lab_dispatch.toml:2",
+        "name": "unknown_function_code_is_ignored",
+        "origin": "sidecar",
+        "review_state": "reviewed"
+      },
+      "arrangements": [
+        {
+          "backend": "cfs-utstub",
+          "effect": "output_parameter_value",
+          "provenance": "annotation",
+          "provenance_detail": "sidecar apps/ci_lab/unit-test/annotations/ci_lab_dispatch.toml:2 covmock:test unknown_function_code_is_ignored",
+          "rendered": true,
+          "requires_human_choice": false,
+          "routing": "mock_backend",
+          "seam": "c:@F@CFE_MSG_GetFcnCode",
+          "superseded_spelling": null,
+          "value": "99"
+        }
+      ],
+      "callable": {
+        "defining_header": null,
+        "display_name": "CI_LAB_ProcessGroundCommand(const CFE_SB_Msg *)",
+        "language_linkage": "c",
+        "linkage": "external",
+        "namespaces": [],
+        "overload_signature": "(const CFE_SB_Msg *)",
+        "owner": null,
+        "qualified_name": "CI_LAB_ProcessGroundCommand",
+        "return_type": "void",
+        "unqualified_name": "CI_LAB_ProcessGroundCommand",
+        "usr": "c:@F@CI_LAB_ProcessGroundCommand"
+      },
+      "case": "unknown_function_code_is_ignored",
+      "confidence": "medium",
+      "confidence_limited_by": [
+        "outcome_identity"
+      ],
+      "desired_outcome": "line_executed",
+      "diagnostics": [
+        {
+          "code": "NO_CONTROLLING_DECISION",
+          "details": [],
+          "explanation": "no decision arm in CI_LAB_ProcessGroundCommand(const CFE_SB_Buffer_t *) encloses apps/ci_lab/fsw/src/ci_lab_dispatch.c:74 syntactically. Whether an earlier exit guards the line is a control-dependence question answered by the M4 slice (#30); the line otherwise executes whenever the function does.",
+          "remedy": null,
+          "severity": "note",
+          "span": null
+        }
+      ],
+      "expectations": [
+        {
+          "asserted": true,
+          "backend": "cfs-utstub",
+          "count": 1,
+          "kind": "call_count_equals",
+          "missing_capabilities": [],
+          "observable": true,
+          "parameter_index": null,
+          "provenance": "annotation",
+          "provenance_detail": "sidecar apps/ci_lab/unit-test/annotations/ci_lab_dispatch.toml:2 covmock:test unknown_function_code_is_ignored",
+          "seam": "c:@F@CFE_MSG_GetFcnCode",
+          "subject": "CFE_MSG_GetFcnCode",
+          "unobservable_reason": null,
+          "value": null
+        },
+        {
+          "asserted": true,
+          "backend": "cfs-utstub",
+          "count": 0,
+          "kind": "call_count_equals",
+          "missing_capabilities": [],
+          "observable": true,
+          "parameter_index": null,
+          "provenance": "annotation",
+          "provenance_detail": "sidecar apps/ci_lab/unit-test/annotations/ci_lab_dispatch.toml:2 covmock:test unknown_function_code_is_ignored",
+          "seam": "c:@F@CFE_MSG_GetSize",
+          "subject": "CFE_MSG_GetSize",
+          "unobservable_reason": null,
+          "value": null
+        }
+      ],
+      "fixture": "CI_LAB_ProcessGroundCommand_covmock",
+      "gap": {
+        "block": null,
+        "branch": null,
+        "condition": "",
+        "evaluated": false,
+        "kind": "line",
+        "line": 74,
+        "origin": "lcov_da",
+        "source_file": "apps/ci_lab/fsw/src/ci_lab_dispatch.c"
+      },
+      "invocation": {
+        "arguments": [
+          "&Buf"
+        ],
+        "call_emitted": true,
+        "placeholder_parameters": [],
+        "setup_statements": [
+          "CFE_SB_Buffer_t Buf = {0};"
+        ],
+        "unresolved_parameters": []
+      },
+      "missing_facts": [],
+      "name": "unknown_function_code_is_ignored",
+      "output": "tests/test_CI_LAB_ProcessGroundCommand.c",
+      "requirement_ids": [],
+      "review_state": "reviewed",
+      "seams": [
+        {
+          "backend": "cfs-utstub",
+          "kind": "external_function",
+          "spelling": "CFE_MSG_GetFcnCode(const CFE_MSG_Message *, unsigned short *)",
+          "unsupported_code": null,
+          "unsupported_reason": null,
+          "usr": "c:@F@CFE_MSG_GetFcnCode"
+        },
+        {
+          "backend": "cfs-utstub",
+          "kind": "external_function",
+          "spelling": "CFE_MSG_GetSize(const CFE_MSG_Message *, unsigned long *)",
+          "unsupported_code": null,
+          "unsupported_reason": null,
+          "usr": "c:@F@CFE_MSG_GetSize"
+        }
+      ],
+      "skip_reason": "",
+      "spec_id": "fcab4361f9ec0906c4c4e5791587fab7"
+    },
+    {
+      "active": true,
+      "annotation": {
+        "location": "apps/ci_lab/unit-test/annotations/ci_lab_dispatch.toml:1",
+        "name": "length_matches",
+        "origin": "sidecar",
+        "review_state": "reviewed"
+      },
+      "arrangements": [
+        {
+          "backend": "cfs-utstub",
+          "effect": "output_parameter_value",
+          "provenance": "annotation",
+          "provenance_detail": "sidecar apps/ci_lab/unit-test/annotations/ci_lab_dispatch.toml:1 covmock:test length_matches",
+          "rendered": true,
+          "requires_human_choice": false,
+          "routing": "mock_backend",
+          "seam": "c:@F@CFE_MSG_GetSize",
+          "superseded_spelling": null,
+          "value": "0"
+        }
+      ],
+      "callable": {
+        "defining_header": null,
+        "display_name": "CI_LAB_VerifyCmdLength(const CFE_MSG_Message *, unsigned long)",
+        "language_linkage": "c",
+        "linkage": "external",
+        "namespaces": [],
+        "overload_signature": "(const CFE_MSG_Message *, unsigned long)",
+        "owner": null,
+        "qualified_name": "CI_LAB_VerifyCmdLength",
+        "return_type": "_Bool",
+        "unqualified_name": "CI_LAB_VerifyCmdLength",
+        "usr": "c:@F@CI_LAB_VerifyCmdLength"
+      },
+      "case": "length_matches",
+      "confidence": "medium",
+      "confidence_limited_by": [
+        "outcome_identity"
+      ],
+      "desired_outcome": "line_executed",
+      "diagnostics": [
+        {
+          "code": "NO_CONTROLLING_DECISION",
+          "details": [],
+          "explanation": "no decision arm in CI_LAB_VerifyCmdLength(const CFE_MSG_Message_t *, size_t) encloses apps/ci_lab/fsw/src/ci_lab_dispatch.c:37 syntactically. Whether an earlier exit guards the line is a control-dependence question answered by the M4 slice (#30); the line otherwise executes whenever the function does.",
+          "remedy": null,
+          "severity": "note",
+          "span": null
+        }
+      ],
+      "expectations": [
+        {
+          "asserted": true,
+          "backend": null,
+          "count": null,
+          "kind": "return_equals",
+          "missing_capabilities": [],
+          "observable": null,
+          "parameter_index": null,
+          "provenance": "annotation",
+          "provenance_detail": "sidecar apps/ci_lab/unit-test/annotations/ci_lab_dispatch.toml:1 covmock:test length_matches",
+          "seam": null,
+          "subject": "return value",
+          "unobservable_reason": null,
+          "value": "true"
+        }
+      ],
+      "fixture": "CI_LAB_VerifyCmdLength_covmock",
+      "gap": {
+        "block": null,
+        "branch": null,
+        "condition": "",
+        "evaluated": false,
+        "kind": "line",
+        "line": 37,
+        "origin": "lcov_da",
+        "source_file": "apps/ci_lab/fsw/src/ci_lab_dispatch.c"
+      },
+      "invocation": {
+        "arguments": [
+          "&Msg",
+          "0"
+        ],
+        "call_emitted": true,
+        "placeholder_parameters": [],
+        "setup_statements": [
+          "CFE_MSG_Message_t Msg = {0};"
+        ],
+        "unresolved_parameters": []
+      },
+      "missing_facts": [],
+      "name": "length_matches",
+      "output": "tests/test_CI_LAB_VerifyCmdLength.c",
+      "requirement_ids": [],
+      "review_state": "reviewed",
+      "seams": [
+        {
+          "backend": "cfs-utstub",
+          "kind": "external_function",
+          "spelling": "CFE_MSG_GetSize(const CFE_MSG_Message *, unsigned long *)",
+          "unsupported_code": null,
+          "unsupported_reason": null,
+          "usr": "c:@F@CFE_MSG_GetSize"
+        }
+      ],
+      "skip_reason": "",
+      "spec_id": "93bcdb1855ed744d34c8de1722a4c524"
+    }
+  ],
+  "tool": {
+    "name": "covmock",
+    "version": "0.1.0.dev0"
+  }
+}

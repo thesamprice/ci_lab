@@ -22,3 +22,7 @@ endif()
 add_cfe_app(ci_lab ${APP_SRC_FILES})
 
 target_include_directories(ci_lab PUBLIC fsw/inc)
+
+if (ENABLE_UNIT_TESTS)
+  add_subdirectory(unit-test)
+endif (ENABLE_UNIT_TESTS)
