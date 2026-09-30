@@ -1,0 +1,518 @@
+{
+  "counts": {
+    "active": 4,
+    "by_review_state": {
+      "reviewed": 4,
+      "scaffold": 0,
+      "specified": 0
+    },
+    "cases": 4,
+    "refused": 0
+  },
+  "generation": {
+    "activate_reviewed_only": true,
+    "compile_commands": "build-cilabut/native/default_cpu1/compile_commands.json",
+    "coverage": "build-cilabut/native/default_cpu1/ci_lab-baseline.info",
+    "framework": "cfs-utassert",
+    "mock_backends": [
+      "cfs-utstub"
+    ]
+  },
+  "manifest_id": "66f38c8918a1c789876e11fcb5103c49",
+  "marker": "covmock:generated",
+  "outputs": [
+    {
+      "kind": "build_fragment",
+      "path": "covmock.cmake",
+      "sha256": "0dd5ff21b6ac9314046712b6f43d84e1b6d227c833b59f8e4cb171eeeaefc8ca"
+    },
+    {
+      "kind": "mock_header",
+      "path": "mocks/mock_cfs_utstub.h",
+      "sha256": "d8b652c0b5c77fceab690581f8bd3666d840d63f2df25790be0975aad1e808e6"
+    },
+    {
+      "kind": "case",
+      "path": "tests/test_CI_LAB_NoopCmd.c",
+      "sha256": "4f518722d6c6dea821892033c37d23dfc1262083c214ba5d76346e3e628107c8"
+    },
+    {
+      "kind": "case",
+      "path": "tests/test_CI_LAB_ReadUplinkCmd.c",
+      "sha256": "4876ddb3af16bc1869edc53aae1a62de917a96986383dfbc26101bea9971027b"
+    },
+    {
+      "kind": "case",
+      "path": "tests/test_CI_LAB_ResetCountersCmd.c",
+      "sha256": "b9a803383ea8bef910b7dc69c8e81f1859ad8a8ce4df8f21341a7a3b411014ac"
+    },
+    {
+      "kind": "case",
+      "path": "tests/test_CI_LAB_SendHkCmd.c",
+      "sha256": "0992410ebf49e51d5c7eb6b39778745ccbd9ace2051d048273605e054c804c75"
+    }
+  ],
+  "refusals": [],
+  "schema": "covmock.manifest/v1",
+  "tests": [
+    {
+      "active": true,
+      "annotation": {
+        "location": "apps/ci_lab/unit-test/annotations/ci_lab_cmds.toml:1",
+        "name": "noop_counts_and_reports",
+        "origin": "sidecar",
+        "review_state": "reviewed"
+      },
+      "arrangements": [],
+      "callable": {
+        "defining_header": "apps/ci_lab/fsw/src/ci_lab_cmds.h",
+        "display_name": "CI_LAB_NoopCmd(const CI_LAB_NoopCmd_t *)",
+        "language_linkage": "c",
+        "linkage": "external",
+        "namespaces": [],
+        "overload_signature": "(const CI_LAB_NoopCmd_t *)",
+        "owner": null,
+        "qualified_name": "CI_LAB_NoopCmd",
+        "return_type": "int",
+        "unqualified_name": "CI_LAB_NoopCmd",
+        "usr": "c:@F@CI_LAB_NoopCmd"
+      },
+      "case": "noop_counts_and_reports",
+      "confidence": "medium",
+      "confidence_limited_by": [
+        "outcome_identity"
+      ],
+      "desired_outcome": "line_executed",
+      "diagnostics": [
+        {
+          "code": "NO_CONTROLLING_DECISION",
+          "details": [],
+          "explanation": "no decision arm in CI_LAB_NoopCmd(const CI_LAB_NoopCmd_t *) encloses apps/ci_lab/fsw/src/ci_lab_cmds.c:41 syntactically. Whether an earlier exit guards the line is a control-dependence question answered by the M4 slice (#30); the line otherwise executes whenever the function does.",
+          "remedy": null,
+          "severity": "note",
+          "span": null
+        }
+      ],
+      "expectations": [
+        {
+          "asserted": true,
+          "backend": "cfs-utstub",
+          "count": 1,
+          "kind": "call_count_equals",
+          "missing_capabilities": [],
+          "observable": true,
+          "parameter_index": null,
+          "provenance": "annotation",
+          "provenance_detail": "sidecar apps/ci_lab/unit-test/annotations/ci_lab_cmds.toml:1 covmock:test noop_counts_and_reports",
+          "seam": "c:@F@CFE_EVS_SendEvent",
+          "subject": "CFE_EVS_SendEvent",
+          "unobservable_reason": null,
+          "value": null
+        },
+        {
+          "asserted": true,
+          "backend": null,
+          "count": null,
+          "kind": "return_equals",
+          "missing_capabilities": [],
+          "observable": null,
+          "parameter_index": null,
+          "provenance": "annotation",
+          "provenance_detail": "sidecar apps/ci_lab/unit-test/annotations/ci_lab_cmds.toml:1 covmock:test noop_counts_and_reports",
+          "seam": null,
+          "subject": "return value",
+          "unobservable_reason": null,
+          "value": "CFE_SUCCESS"
+        }
+      ],
+      "fixture": "CI_LAB_NoopCmd_covmock",
+      "gap": {
+        "block": null,
+        "branch": null,
+        "condition": "",
+        "evaluated": false,
+        "kind": "line",
+        "line": 41,
+        "origin": "lcov_da",
+        "source_file": "apps/ci_lab/fsw/src/ci_lab_cmds.c"
+      },
+      "invocation": {
+        "arguments": [
+          "NULL"
+        ],
+        "call_emitted": true,
+        "placeholder_parameters": [],
+        "setup_statements": [],
+        "unresolved_parameters": []
+      },
+      "missing_facts": [],
+      "name": "noop_counts_and_reports",
+      "output": "tests/test_CI_LAB_NoopCmd.c",
+      "requirement_ids": [],
+      "review_state": "reviewed",
+      "seams": [
+        {
+          "backend": "cfs-utstub",
+          "kind": "external_function",
+          "spelling": "CFE_EVS_SendEvent(unsigned short, unsigned short, const char *, ...)",
+          "unsupported_code": null,
+          "unsupported_reason": null,
+          "usr": "c:@F@CFE_EVS_SendEvent"
+        }
+      ],
+      "skip_reason": "",
+      "spec_id": "bdc02a47bc2e17245c8b3418fd9c52bf"
+    },
+    {
+      "active": true,
+      "annotation": {
+        "location": "apps/ci_lab/unit-test/annotations/ci_lab_cmds.toml:4",
+        "name": "read_uplink_cmd_reads",
+        "origin": "sidecar",
+        "review_state": "reviewed"
+      },
+      "arrangements": [],
+      "callable": {
+        "defining_header": "apps/ci_lab/fsw/src/ci_lab_cmds.h",
+        "display_name": "CI_LAB_ReadUplinkCmd(const CI_LAB_ReadUplinkCmd_t *)",
+        "language_linkage": "c",
+        "linkage": "external",
+        "namespaces": [],
+        "overload_signature": "(const CI_LAB_ReadUplinkCmd_t *)",
+        "owner": null,
+        "qualified_name": "CI_LAB_ReadUplinkCmd",
+        "return_type": "int",
+        "unqualified_name": "CI_LAB_ReadUplinkCmd",
+        "usr": "c:@F@CI_LAB_ReadUplinkCmd"
+      },
+      "case": "read_uplink_cmd_reads",
+      "confidence": "medium",
+      "confidence_limited_by": [
+        "outcome_identity"
+      ],
+      "desired_outcome": "line_executed",
+      "diagnostics": [
+        {
+          "code": "NO_CONTROLLING_DECISION",
+          "details": [],
+          "explanation": "no decision arm in CI_LAB_ReadUplinkCmd(const CI_LAB_ReadUplinkCmd_t *) encloses apps/ci_lab/fsw/src/ci_lab_cmds.c:87 syntactically. Whether an earlier exit guards the line is a control-dependence question answered by the M4 slice (#30); the line otherwise executes whenever the function does.",
+          "remedy": null,
+          "severity": "note",
+          "span": null
+        }
+      ],
+      "expectations": [
+        {
+          "asserted": true,
+          "backend": "cfs-utstub",
+          "count": 1,
+          "kind": "call_count_equals",
+          "missing_capabilities": [],
+          "observable": true,
+          "parameter_index": null,
+          "provenance": "annotation",
+          "provenance_detail": "sidecar apps/ci_lab/unit-test/annotations/ci_lab_cmds.toml:4 covmock:test read_uplink_cmd_reads",
+          "seam": "c:@F@CI_LAB_ReadUpLink",
+          "subject": "CI_LAB_ReadUpLink",
+          "unobservable_reason": null,
+          "value": null
+        },
+        {
+          "asserted": true,
+          "backend": null,
+          "count": null,
+          "kind": "return_equals",
+          "missing_capabilities": [],
+          "observable": null,
+          "parameter_index": null,
+          "provenance": "annotation",
+          "provenance_detail": "sidecar apps/ci_lab/unit-test/annotations/ci_lab_cmds.toml:4 covmock:test read_uplink_cmd_reads",
+          "seam": null,
+          "subject": "return value",
+          "unobservable_reason": null,
+          "value": "CFE_SUCCESS"
+        }
+      ],
+      "fixture": "CI_LAB_ReadUplinkCmd_covmock",
+      "gap": {
+        "block": null,
+        "branch": null,
+        "condition": "",
+        "evaluated": false,
+        "kind": "line",
+        "line": 87,
+        "origin": "lcov_da",
+        "source_file": "apps/ci_lab/fsw/src/ci_lab_cmds.c"
+      },
+      "invocation": {
+        "arguments": [
+          "NULL"
+        ],
+        "call_emitted": true,
+        "placeholder_parameters": [],
+        "setup_statements": [],
+        "unresolved_parameters": []
+      },
+      "missing_facts": [],
+      "name": "read_uplink_cmd_reads",
+      "output": "tests/test_CI_LAB_ReadUplinkCmd.c",
+      "requirement_ids": [],
+      "review_state": "reviewed",
+      "seams": [
+        {
+          "backend": "cfs-utstub",
+          "kind": "external_function",
+          "spelling": "CI_LAB_ReadUpLink()",
+          "unsupported_code": null,
+          "unsupported_reason": null,
+          "usr": "c:@F@CI_LAB_ReadUpLink"
+        }
+      ],
+      "skip_reason": "",
+      "spec_id": "9b8f818d30aba05416d82b2744615994"
+    },
+    {
+      "active": true,
+      "annotation": {
+        "location": "apps/ci_lab/unit-test/annotations/ci_lab_cmds.toml:2",
+        "name": "reset_counters_reports",
+        "origin": "sidecar",
+        "review_state": "reviewed"
+      },
+      "arrangements": [],
+      "callable": {
+        "defining_header": "apps/ci_lab/fsw/src/ci_lab_cmds.h",
+        "display_name": "CI_LAB_ResetCountersCmd(const CI_LAB_ResetCountersCmd_t *)",
+        "language_linkage": "c",
+        "linkage": "external",
+        "namespaces": [],
+        "overload_signature": "(const CI_LAB_ResetCountersCmd_t *)",
+        "owner": null,
+        "qualified_name": "CI_LAB_ResetCountersCmd",
+        "return_type": "int",
+        "unqualified_name": "CI_LAB_ResetCountersCmd",
+        "usr": "c:@F@CI_LAB_ResetCountersCmd"
+      },
+      "case": "reset_counters_reports",
+      "confidence": "medium",
+      "confidence_limited_by": [
+        "outcome_identity"
+      ],
+      "desired_outcome": "line_executed",
+      "diagnostics": [
+        {
+          "code": "NO_CONTROLLING_DECISION",
+          "details": [],
+          "explanation": "no decision arm in CI_LAB_ResetCountersCmd(const CI_LAB_ResetCountersCmd_t *) encloses apps/ci_lab/fsw/src/ci_lab_cmds.c:62 syntactically. Whether an earlier exit guards the line is a control-dependence question answered by the M4 slice (#30); the line otherwise executes whenever the function does.",
+          "remedy": null,
+          "severity": "note",
+          "span": null
+        }
+      ],
+      "expectations": [
+        {
+          "asserted": true,
+          "backend": "cfs-utstub",
+          "count": 1,
+          "kind": "call_count_equals",
+          "missing_capabilities": [],
+          "observable": true,
+          "parameter_index": null,
+          "provenance": "annotation",
+          "provenance_detail": "sidecar apps/ci_lab/unit-test/annotations/ci_lab_cmds.toml:2 covmock:test reset_counters_reports",
+          "seam": "c:@F@CFE_EVS_SendEvent",
+          "subject": "CFE_EVS_SendEvent",
+          "unobservable_reason": null,
+          "value": null
+        },
+        {
+          "asserted": true,
+          "backend": "cfs-utstub",
+          "count": 1,
+          "kind": "call_count_equals",
+          "missing_capabilities": [],
+          "observable": true,
+          "parameter_index": null,
+          "provenance": "annotation",
+          "provenance_detail": "sidecar apps/ci_lab/unit-test/annotations/ci_lab_cmds.toml:2 covmock:test reset_counters_reports",
+          "seam": "c:@F@CI_LAB_ResetCounters_Internal",
+          "subject": "CI_LAB_ResetCounters_Internal",
+          "unobservable_reason": null,
+          "value": null
+        },
+        {
+          "asserted": true,
+          "backend": null,
+          "count": null,
+          "kind": "return_equals",
+          "missing_capabilities": [],
+          "observable": null,
+          "parameter_index": null,
+          "provenance": "annotation",
+          "provenance_detail": "sidecar apps/ci_lab/unit-test/annotations/ci_lab_cmds.toml:2 covmock:test reset_counters_reports",
+          "seam": null,
+          "subject": "return value",
+          "unobservable_reason": null,
+          "value": "CFE_SUCCESS"
+        }
+      ],
+      "fixture": "CI_LAB_ResetCountersCmd_covmock",
+      "gap": {
+        "block": null,
+        "branch": null,
+        "condition": "",
+        "evaluated": false,
+        "kind": "line",
+        "line": 62,
+        "origin": "lcov_da",
+        "source_file": "apps/ci_lab/fsw/src/ci_lab_cmds.c"
+      },
+      "invocation": {
+        "arguments": [
+          "NULL"
+        ],
+        "call_emitted": true,
+        "placeholder_parameters": [],
+        "setup_statements": [],
+        "unresolved_parameters": []
+      },
+      "missing_facts": [],
+      "name": "reset_counters_reports",
+      "output": "tests/test_CI_LAB_ResetCountersCmd.c",
+      "requirement_ids": [],
+      "review_state": "reviewed",
+      "seams": [
+        {
+          "backend": "cfs-utstub",
+          "kind": "external_function",
+          "spelling": "CFE_EVS_SendEvent(unsigned short, unsigned short, const char *, ...)",
+          "unsupported_code": null,
+          "unsupported_reason": null,
+          "usr": "c:@F@CFE_EVS_SendEvent"
+        },
+        {
+          "backend": "cfs-utstub",
+          "kind": "external_function",
+          "spelling": "CI_LAB_ResetCounters_Internal()",
+          "unsupported_code": null,
+          "unsupported_reason": null,
+          "usr": "c:@F@CI_LAB_ResetCounters_Internal"
+        }
+      ],
+      "skip_reason": "",
+      "spec_id": "a84f0650a5bc9c0e7db23166ef4cf6a7"
+    },
+    {
+      "active": true,
+      "annotation": {
+        "location": "apps/ci_lab/unit-test/annotations/ci_lab_cmds.toml:3",
+        "name": "send_hk_transmits",
+        "origin": "sidecar",
+        "review_state": "reviewed"
+      },
+      "arrangements": [],
+      "callable": {
+        "defining_header": "apps/ci_lab/fsw/src/ci_lab_cmds.h",
+        "display_name": "CI_LAB_SendHkCmd(const CI_LAB_SendHkCmd_t *)",
+        "language_linkage": "c",
+        "linkage": "external",
+        "namespaces": [],
+        "overload_signature": "(const CI_LAB_SendHkCmd_t *)",
+        "owner": null,
+        "qualified_name": "CI_LAB_SendHkCmd",
+        "return_type": "int",
+        "unqualified_name": "CI_LAB_SendHkCmd",
+        "usr": "c:@F@CI_LAB_SendHkCmd"
+      },
+      "case": "send_hk_transmits",
+      "confidence": "medium",
+      "confidence_limited_by": [
+        "outcome_identity"
+      ],
+      "desired_outcome": "line_executed",
+      "diagnostics": [
+        {
+          "code": "NO_CONTROLLING_DECISION",
+          "details": [],
+          "explanation": "no decision arm in CI_LAB_SendHkCmd(const CI_LAB_SendHkCmd_t *) encloses apps/ci_lab/fsw/src/ci_lab_cmds.c:78 syntactically. Whether an earlier exit guards the line is a control-dependence question answered by the M4 slice (#30); the line otherwise executes whenever the function does.",
+          "remedy": null,
+          "severity": "note",
+          "span": null
+        }
+      ],
+      "expectations": [
+        {
+          "asserted": true,
+          "backend": "cfs-utstub",
+          "count": 1,
+          "kind": "call_count_equals",
+          "missing_capabilities": [],
+          "observable": true,
+          "parameter_index": null,
+          "provenance": "annotation",
+          "provenance_detail": "sidecar apps/ci_lab/unit-test/annotations/ci_lab_cmds.toml:3 covmock:test send_hk_transmits",
+          "seam": "c:@F@CFE_SB_TransmitMsg",
+          "subject": "CFE_SB_TransmitMsg",
+          "unobservable_reason": null,
+          "value": null
+        },
+        {
+          "asserted": true,
+          "backend": null,
+          "count": null,
+          "kind": "return_equals",
+          "missing_capabilities": [],
+          "observable": null,
+          "parameter_index": null,
+          "provenance": "annotation",
+          "provenance_detail": "sidecar apps/ci_lab/unit-test/annotations/ci_lab_cmds.toml:3 covmock:test send_hk_transmits",
+          "seam": null,
+          "subject": "return value",
+          "unobservable_reason": null,
+          "value": "CFE_SUCCESS"
+        }
+      ],
+      "fixture": "CI_LAB_SendHkCmd_covmock",
+      "gap": {
+        "block": null,
+        "branch": null,
+        "condition": "",
+        "evaluated": false,
+        "kind": "line",
+        "line": 78,
+        "origin": "lcov_da",
+        "source_file": "apps/ci_lab/fsw/src/ci_lab_cmds.c"
+      },
+      "invocation": {
+        "arguments": [
+          "NULL"
+        ],
+        "call_emitted": true,
+        "placeholder_parameters": [],
+        "setup_statements": [],
+        "unresolved_parameters": []
+      },
+      "missing_facts": [],
+      "name": "send_hk_transmits",
+      "output": "tests/test_CI_LAB_SendHkCmd.c",
+      "requirement_ids": [],
+      "review_state": "reviewed",
+      "seams": [
+        {
+          "backend": "cfs-utstub",
+          "kind": "external_function",
+          "spelling": "CFE_SB_TransmitMsg(const CFE_MSG_Message *, _Bool)",
+          "unsupported_code": null,
+          "unsupported_reason": null,
+          "usr": "c:@F@CFE_SB_TransmitMsg"
+        }
+      ],
+      "skip_reason": "",
+      "spec_id": "aeb9287fbcb56edfd97d0e56b2cefdbc"
+    }
+  ],
+  "tool": {
+    "name": "covmock",
+    "version": "0.1.0.dev0"
+  }
+}

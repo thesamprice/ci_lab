@@ -1,0 +1,260 @@
+{
+  "counts": {
+    "active": 2,
+    "by_review_state": {
+      "reviewed": 2,
+      "scaffold": 0,
+      "specified": 0
+    },
+    "cases": 2,
+    "refused": 0
+  },
+  "generation": {
+    "activate_reviewed_only": true,
+    "compile_commands": "build-cilabut/native/default_cpu1/compile_commands.json",
+    "coverage": "build-cilabut/native/default_cpu1/ci_lab-baseline.info",
+    "framework": "cfs-utassert",
+    "mock_backends": [
+      "cfs-utstub"
+    ]
+  },
+  "manifest_id": "ce1819b382f0b79e44ddd50593536656",
+  "marker": "covmock:generated",
+  "outputs": [
+    {
+      "kind": "build_fragment",
+      "path": "covmock.cmake",
+      "sha256": "37db5c81568ddb7b83ed9996c365658d17c249250704c0105142562462bb56c8"
+    },
+    {
+      "kind": "mock_header",
+      "path": "mocks/mock_cfs_utstub.h",
+      "sha256": "096492bd0d11ed0fd11451401bda0da7666fb3c37b46f5305945bc2731d64b3e"
+    },
+    {
+      "kind": "case",
+      "path": "tests/test_CI_LAB_DecodeInputMessage.c",
+      "sha256": "78edd2c3be4961b88bb2a7692afc95d57164d50ee4c7ca05a331db6c0877d20b"
+    },
+    {
+      "kind": "case",
+      "path": "tests/test_CI_LAB_GetInputBuffer.c",
+      "sha256": "966bf6ab078f551503be232121261f45ed64b83f980f896bc11eed5da096445d"
+    }
+  ],
+  "refusals": [],
+  "schema": "covmock.manifest/v1",
+  "tests": [
+    {
+      "active": true,
+      "annotation": {
+        "location": "apps/ci_lab/unit-test/annotations/ci_lab_passthru_decode.toml:2",
+        "name": "short_packet_is_rejected",
+        "origin": "sidecar",
+        "review_state": "reviewed"
+      },
+      "arrangements": [
+        {
+          "backend": null,
+          "effect": "argument_value",
+          "provenance": "inferred",
+          "provenance_detail": "analyzer constraint solution (ordered_boundary)",
+          "rendered": true,
+          "requires_human_choice": false,
+          "routing": "direct",
+          "seam": "sha256:042eff03df2e763e7b358b9fdff27b97366a9c1f85d41bc771d0619100ed722c",
+          "superseded_spelling": null,
+          "value": "7"
+        }
+      ],
+      "callable": {
+        "defining_header": "apps/ci_lab/fsw/src/ci_lab_decode.h",
+        "display_name": "CI_LAB_DecodeInputMessage(void *, unsigned long, CFE_SB_Msg **)",
+        "language_linkage": "c",
+        "linkage": "external",
+        "namespaces": [],
+        "overload_signature": "(void *, unsigned long, CFE_SB_Msg **)",
+        "owner": null,
+        "qualified_name": "CI_LAB_DecodeInputMessage",
+        "return_type": "int",
+        "unqualified_name": "CI_LAB_DecodeInputMessage",
+        "usr": "c:@F@CI_LAB_DecodeInputMessage"
+      },
+      "case": "short_packet_is_rejected",
+      "confidence": "medium",
+      "confidence_limited_by": [
+        "mockability"
+      ],
+      "desired_outcome": "line_executed",
+      "diagnostics": [
+        {
+          "code": "READINESS",
+          "details": [],
+          "explanation": "every part of the gate is met: an exact decision, an exact semantic outcome, a complete slice to a controllable seam, an exact constraint, and modelled control requirements",
+          "remedy": null,
+          "severity": "note",
+          "span": null
+        }
+      ],
+      "expectations": [
+        {
+          "asserted": true,
+          "backend": null,
+          "count": null,
+          "kind": "return_equals",
+          "missing_capabilities": [],
+          "observable": null,
+          "parameter_index": null,
+          "provenance": "annotation",
+          "provenance_detail": "sidecar apps/ci_lab/unit-test/annotations/ci_lab_passthru_decode.toml:2 covmock:test short_packet_is_rejected",
+          "seam": null,
+          "subject": "return value",
+          "unobservable_reason": null,
+          "value": "CFE_STATUS_WRONG_MSG_LENGTH"
+        }
+      ],
+      "fixture": "CI_LAB_DecodeInputMessage_covmock",
+      "gap": {
+        "block": null,
+        "branch": null,
+        "condition": "SourceSize < sizeof ( CFE_MSG_CommandHeader_t )",
+        "evaluated": false,
+        "kind": "line",
+        "line": 84,
+        "origin": "lcov_da",
+        "source_file": "apps/ci_lab/fsw/src/ci_lab_passthru_decode.c"
+      },
+      "invocation": {
+        "arguments": [
+          "NULL",
+          "0",
+          "&Out"
+        ],
+        "call_emitted": true,
+        "placeholder_parameters": [],
+        "setup_statements": [
+          "CFE_SB_Buffer_t * Out = {0};"
+        ],
+        "unresolved_parameters": []
+      },
+      "missing_facts": [],
+      "name": "short_packet_is_rejected",
+      "output": "tests/test_CI_LAB_DecodeInputMessage.c",
+      "requirement_ids": [],
+      "review_state": "reviewed",
+      "seams": [
+        {
+          "backend": null,
+          "kind": "parameter",
+          "spelling": "SourceSize",
+          "unsupported_code": null,
+          "unsupported_reason": null,
+          "usr": "sha256:042eff03df2e763e7b358b9fdff27b97366a9c1f85d41bc771d0619100ed722c"
+        }
+      ],
+      "skip_reason": "",
+      "spec_id": "6434ff8a53ddac5b09888569a9b8bb09"
+    },
+    {
+      "active": true,
+      "annotation": {
+        "location": "apps/ci_lab/unit-test/annotations/ci_lab_passthru_decode.toml:1",
+        "name": "get_input_buffer_allocates",
+        "origin": "sidecar",
+        "review_state": "reviewed"
+      },
+      "arrangements": [],
+      "callable": {
+        "defining_header": "apps/ci_lab/fsw/src/ci_lab_decode.h",
+        "display_name": "CI_LAB_GetInputBuffer(void **, unsigned long *)",
+        "language_linkage": "c",
+        "linkage": "external",
+        "namespaces": [],
+        "overload_signature": "(void **, unsigned long *)",
+        "owner": null,
+        "qualified_name": "CI_LAB_GetInputBuffer",
+        "return_type": "int",
+        "unqualified_name": "CI_LAB_GetInputBuffer",
+        "usr": "c:@F@CI_LAB_GetInputBuffer"
+      },
+      "case": "get_input_buffer_allocates",
+      "confidence": "medium",
+      "confidence_limited_by": [
+        "outcome_identity"
+      ],
+      "desired_outcome": "line_executed",
+      "diagnostics": [
+        {
+          "code": "NO_CONTROLLING_DECISION",
+          "details": [],
+          "explanation": "no decision arm in CI_LAB_GetInputBuffer(void **, size_t *) encloses apps/ci_lab/fsw/src/ci_lab_passthru_decode.c:47 syntactically. Whether an earlier exit guards the line is a control-dependence question answered by the M4 slice (#30); the line otherwise executes whenever the function does.",
+          "remedy": null,
+          "severity": "note",
+          "span": null
+        }
+      ],
+      "expectations": [
+        {
+          "asserted": true,
+          "backend": "cfs-utstub",
+          "count": 1,
+          "kind": "call_count_equals",
+          "missing_capabilities": [],
+          "observable": true,
+          "parameter_index": null,
+          "provenance": "annotation",
+          "provenance_detail": "sidecar apps/ci_lab/unit-test/annotations/ci_lab_passthru_decode.toml:1 covmock:test get_input_buffer_allocates",
+          "seam": "c:@F@CFE_SB_AllocateMessageBuffer",
+          "subject": "CFE_SB_AllocateMessageBuffer",
+          "unobservable_reason": null,
+          "value": null
+        }
+      ],
+      "fixture": "CI_LAB_GetInputBuffer_covmock",
+      "gap": {
+        "block": null,
+        "branch": null,
+        "condition": "",
+        "evaluated": false,
+        "kind": "line",
+        "line": 47,
+        "origin": "lcov_da",
+        "source_file": "apps/ci_lab/fsw/src/ci_lab_passthru_decode.c"
+      },
+      "invocation": {
+        "arguments": [
+          "&Buffer",
+          "&Size"
+        ],
+        "call_emitted": true,
+        "placeholder_parameters": [],
+        "setup_statements": [
+          "void * Buffer = {0};",
+          "size_t Size = {0};"
+        ],
+        "unresolved_parameters": []
+      },
+      "missing_facts": [],
+      "name": "get_input_buffer_allocates",
+      "output": "tests/test_CI_LAB_GetInputBuffer.c",
+      "requirement_ids": [],
+      "review_state": "reviewed",
+      "seams": [
+        {
+          "backend": "cfs-utstub",
+          "kind": "external_function",
+          "spelling": "CFE_SB_AllocateMessageBuffer(unsigned long)",
+          "unsupported_code": null,
+          "unsupported_reason": null,
+          "usr": "c:@F@CFE_SB_AllocateMessageBuffer"
+        }
+      ],
+      "skip_reason": "",
+      "spec_id": "a863d8aeda9225c2c9deab5dfd7439c6"
+    }
+  ],
+  "tool": {
+    "name": "covmock",
+    "version": "0.1.0.dev0"
+  }
+}

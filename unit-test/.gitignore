@@ -1,0 +1,3 @@
+# covmock run log: regenerated on every `covmock generate`, and it records
+# paths from the machine that ran it.
+covmock/*/diagnostics.json

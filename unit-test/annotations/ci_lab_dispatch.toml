@@ -1,0 +1,20 @@
+# covmock:test specifications for ci_lab_dispatch.c.
+# CI_LAB_TaskPipe has no case: every branch compares a CFE_SB_MsgId_t, a
+# struct an annotation cannot supply, and cFE's CFE_MSG_GetMsgId stub fails
+# the case (TSF) when no value is supplied. See the case study's limits.
+
+[[test]]
+name = "length_matches"
+target = "function=CI_LAB_VerifyCmdLength line=37"
+mock-output = ["CFE_MSG_GetSize param=1 = 0"]
+invoke = "CI_LAB_VerifyCmdLength(&Msg, 0)"
+expect-return = "true"
+reviewed = true
+
+[[test]]
+name = "unknown_function_code_is_ignored"
+target = "function=CI_LAB_ProcessGroundCommand line=74"
+mock-output = ["CFE_MSG_GetFcnCode param=1 = 99"]
+invoke = "CI_LAB_ProcessGroundCommand(&Buf)"
+expect-call = ["CFE_MSG_GetFcnCode count=1", "CFE_MSG_GetSize count=0"]
+reviewed = true

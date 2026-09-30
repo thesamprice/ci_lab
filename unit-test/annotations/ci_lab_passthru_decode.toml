@@ -1,0 +1,16 @@
+# covmock:test specifications for ci_lab_passthru_decode.c -- round 1.
+
+[[test]]
+name = "get_input_buffer_allocates"
+target = "function=CI_LAB_GetInputBuffer line=47"
+invoke = "CI_LAB_GetInputBuffer(&Buffer, &Size)"
+expect-call = ["CFE_SB_AllocateMessageBuffer count=1"]
+reviewed = true
+
+[[test]]
+name = "short_packet_is_rejected"
+target = "function=CI_LAB_DecodeInputMessage line=84"
+invoke = "CI_LAB_DecodeInputMessage(NULL, 0, &Out)"
+expect-return = "CFE_STATUS_WRONG_MSG_LENGTH"
+reviewed = true
+

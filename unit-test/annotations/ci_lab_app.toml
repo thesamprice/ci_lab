@@ -1,0 +1,61 @@
+# covmock:test specifications for ci_lab_app.c -- round 1: one case per function.
+
+[[test]]
+name = "main_runs_one_cycle_then_exits"
+target = "function=CI_LAB_AppMain line=53"
+mock-return-sequence = ["CFE_ES_RunLoop = true false"]
+invoke = "CI_LAB_AppMain()"
+expect-call = ["CFE_ES_ExitApp count=1", "CI_LAB_TaskPipe count=1"]
+reviewed = true
+
+[[test]]
+name = "delete_callback_closes_socket"
+target = "function=CI_LAB_delete_callback line=94"
+invoke = "CI_LAB_delete_callback()"
+expect-call = ["OS_close count=1"]
+reviewed = true
+
+[[test]]
+name = "init_subscribes_and_binds"
+target = "function=CI_LAB_TaskInit line=109"
+invoke = "CI_LAB_TaskInit()"
+expect-call = ["CFE_SB_Subscribe count=3", "OS_SocketBind count=1", "CFE_EVS_SendEvent count=1"]
+reviewed = true
+
+[[test]]
+name = "read_uplink_stops_without_a_buffer"
+target = "function=CI_LAB_ReadUpLink line=243"
+invoke = "CI_LAB_ReadUpLink()"
+expect-call = ["CI_LAB_GetInputBuffer count=1", "OS_SocketRecvFrom count=0"]
+reviewed = true
+
+# -- round 2: the error paths the round-1 coverage left open ------------------
+
+[[test]]
+name = "init_reports_every_registration_failure"
+target = "function=CI_LAB_TaskInit line=116"
+requirement = ["CI-INIT-ERR"]
+mock-return = ["CFE_EVS_Register = -1", "CFE_SB_Subscribe = -1", "OS_SocketOpen = -1"]
+invoke = "CI_LAB_TaskInit()"
+expect-call = ["CFE_ES_WriteToSysLog count=1", "CFE_EVS_SendEvent count=5", "OS_SocketBind count=0"]
+reviewed = true
+
+[[test]]
+name = "init_reports_pipe_and_bind_failures"
+target = "function=CI_LAB_TaskInit line=151"
+requirement = ["CI-INIT-ERR"]
+mock-return = ["CFE_SB_CreatePipe = -1", "OS_SocketBind = -1"]
+invoke = "CI_LAB_TaskInit()"
+expect-call = ["CFE_SB_Subscribe count=0", "CFE_EVS_SendEvent count=3"]
+reviewed = true
+
+[[test]]
+name = "main_skips_pipe_and_uplink_on_errors"
+# Anchored to a line gap: the branch it exists for (line 72, false) is a gcov
+# ordinal covmock will not map to an outcome, so it is not a target itself.
+target = "function=CI_LAB_AppMain line=56"
+mock-return-sequence = ["CFE_ES_RunLoop = true false"]
+mock-return = ["CFE_SB_ReceiveBuffer = -1", "OS_SocketBind = -1"]
+invoke = "CI_LAB_AppMain()"
+expect-call = ["CI_LAB_TaskPipe count=0", "OS_SocketRecvFrom count=0", "CFE_ES_ExitApp count=1"]
+reviewed = true

@@ -1,0 +1,1601 @@
+{
+  "counts": {
+    "active": 7,
+    "by_review_state": {
+      "reviewed": 7,
+      "scaffold": 0,
+      "specified": 0
+    },
+    "cases": 7,
+    "refused": 0
+  },
+  "generation": {
+    "activate_reviewed_only": true,
+    "compile_commands": "build-cilabut/native/default_cpu1/compile_commands.json",
+    "coverage": "build-cilabut/native/default_cpu1/ci_lab-baseline.info",
+    "framework": "cfs-utassert",
+    "mock_backends": [
+      "cfs-utstub"
+    ]
+  },
+  "manifest_id": "a73ea26757fa2f115639ecda8cc00f24",
+  "marker": "covmock:generated",
+  "outputs": [
+    {
+      "kind": "build_fragment",
+      "path": "covmock.cmake",
+      "sha256": "022409b737b77684c411859c547f946a5daa21984742c7987b4c42f879c5c143"
+    },
+    {
+      "kind": "mock_source",
+      "path": "mocks/mock_cfs_utstub.c",
+      "sha256": "7a0a3ad86b7e48a87fbcd3f0fc4e6c43b1a4dcc6f052775417d4c99bbf88bead"
+    },
+    {
+      "kind": "mock_header",
+      "path": "mocks/mock_cfs_utstub.h",
+      "sha256": "82cb326b8baaf6adf11f000a528121a8e92889d4f5ff9422642041b00f406185"
+    },
+    {
+      "kind": "case",
+      "path": "tests/test_CI_LAB_AppMain.c",
+      "sha256": "dc5f7e48c047e293646dc8a109ba98e18f29ef4d4dce991204fa07b9f0081f73"
+    },
+    {
+      "kind": "case",
+      "path": "tests/test_CI_LAB_ReadUpLink.c",
+      "sha256": "b01012efc220f3bf42202111ebb146917f7f349b0373b60d8a945617ffff0a9e"
+    },
+    {
+      "kind": "case",
+      "path": "tests/test_CI_LAB_TaskInit.c",
+      "sha256": "6782a0f6a561f92b51caa65d8a36fc95f41e8b6b02dca460935e9353f07d4d76"
+    },
+    {
+      "kind": "case",
+      "path": "tests/test_CI_LAB_delete_callback.c",
+      "sha256": "e589957a02300e4f964cbbc17a16aa9fcc12feaf88d23d07a5da48514dd8620d"
+    }
+  ],
+  "refusals": [],
+  "schema": "covmock.manifest/v1",
+  "tests": [
+    {
+      "active": true,
+      "annotation": {
+        "location": "apps/ci_lab/unit-test/annotations/ci_lab_app.toml:1",
+        "name": "main_runs_one_cycle_then_exits",
+        "origin": "sidecar",
+        "review_state": "reviewed"
+      },
+      "arrangements": [
+        {
+          "backend": "cfs-utstub",
+          "effect": "return_sequence",
+          "provenance": "annotation",
+          "provenance_detail": "sidecar apps/ci_lab/unit-test/annotations/ci_lab_app.toml:1 covmock:test main_runs_one_cycle_then_exits",
+          "rendered": true,
+          "requires_human_choice": false,
+          "routing": "mock_backend",
+          "seam": "c:@F@CFE_ES_RunLoop",
+          "superseded_spelling": null,
+          "value": null
+        }
+      ],
+      "callable": {
+        "defining_header": "apps/ci_lab/fsw/src/ci_lab_app.h",
+        "display_name": "CI_LAB_AppMain()",
+        "language_linkage": "c",
+        "linkage": "external",
+        "namespaces": [],
+        "overload_signature": "()",
+        "owner": null,
+        "qualified_name": "CI_LAB_AppMain",
+        "return_type": "void",
+        "unqualified_name": "CI_LAB_AppMain",
+        "usr": "c:@F@CI_LAB_AppMain"
+      },
+      "case": "main_runs_one_cycle_then_exits",
+      "confidence": "medium",
+      "confidence_limited_by": [
+        "outcome_identity"
+      ],
+      "desired_outcome": "line_executed",
+      "diagnostics": [
+        {
+          "code": "NO_CONTROLLING_DECISION",
+          "details": [],
+          "explanation": "no decision arm in CI_LAB_AppMain() encloses apps/ci_lab/fsw/src/ci_lab_app.c:53 syntactically. Whether an earlier exit guards the line is a control-dependence question answered by the M4 slice (#30); the line otherwise executes whenever the function does.",
+          "remedy": null,
+          "severity": "note",
+          "span": null
+        }
+      ],
+      "expectations": [
+        {
+          "asserted": true,
+          "backend": "cfs-utstub",
+          "count": 1,
+          "kind": "call_count_equals",
+          "missing_capabilities": [],
+          "observable": true,
+          "parameter_index": null,
+          "provenance": "annotation",
+          "provenance_detail": "sidecar apps/ci_lab/unit-test/annotations/ci_lab_app.toml:1 covmock:test main_runs_one_cycle_then_exits",
+          "seam": "c:@F@CFE_ES_ExitApp",
+          "subject": "CFE_ES_ExitApp",
+          "unobservable_reason": null,
+          "value": null
+        },
+        {
+          "asserted": true,
+          "backend": "cfs-utstub",
+          "count": 1,
+          "kind": "call_count_equals",
+          "missing_capabilities": [],
+          "observable": true,
+          "parameter_index": null,
+          "provenance": "annotation",
+          "provenance_detail": "sidecar apps/ci_lab/unit-test/annotations/ci_lab_app.toml:1 covmock:test main_runs_one_cycle_then_exits",
+          "seam": "c:@F@CI_LAB_TaskPipe",
+          "subject": "CI_LAB_TaskPipe",
+          "unobservable_reason": null,
+          "value": null
+        }
+      ],
+      "fixture": "CI_LAB_AppMain_covmock",
+      "gap": {
+        "block": null,
+        "branch": null,
+        "condition": "",
+        "evaluated": false,
+        "kind": "line",
+        "line": 53,
+        "origin": "lcov_da",
+        "source_file": "apps/ci_lab/fsw/src/ci_lab_app.c"
+      },
+      "invocation": {
+        "arguments": [],
+        "call_emitted": true,
+        "placeholder_parameters": [],
+        "setup_statements": [],
+        "unresolved_parameters": []
+      },
+      "missing_facts": [],
+      "name": "main_runs_one_cycle_then_exits",
+      "output": "tests/test_CI_LAB_AppMain.c",
+      "requirement_ids": [],
+      "review_state": "reviewed",
+      "seams": [
+        {
+          "backend": "cfs-utstub",
+          "kind": "external_function",
+          "spelling": "CFE_ES_ExitApp(unsigned int)",
+          "unsupported_code": null,
+          "unsupported_reason": null,
+          "usr": "c:@F@CFE_ES_ExitApp"
+        },
+        {
+          "backend": "cfs-utstub",
+          "kind": "external_function",
+          "spelling": "CFE_ES_RunLoop(unsigned int *)",
+          "unsupported_code": null,
+          "unsupported_reason": null,
+          "usr": "c:@F@CFE_ES_RunLoop"
+        },
+        {
+          "backend": "cfs-utstub",
+          "kind": "external_function",
+          "spelling": "CI_LAB_TaskPipe(const CFE_SB_Msg *)",
+          "unsupported_code": null,
+          "unsupported_reason": null,
+          "usr": "c:@F@CI_LAB_TaskPipe"
+        }
+      ],
+      "skip_reason": "",
+      "spec_id": "c212d1ae90bea1266aa60a0f265b68a9"
+    },
+    {
+      "active": true,
+      "annotation": {
+        "location": "apps/ci_lab/unit-test/annotations/ci_lab_app.toml:7",
+        "name": "main_skips_pipe_and_uplink_on_errors",
+        "origin": "sidecar",
+        "review_state": "reviewed"
+      },
+      "arrangements": [
+        {
+          "backend": "cfs-utstub",
+          "effect": "return_sequence",
+          "provenance": "annotation",
+          "provenance_detail": "sidecar apps/ci_lab/unit-test/annotations/ci_lab_app.toml:7 covmock:test main_skips_pipe_and_uplink_on_errors",
+          "rendered": true,
+          "requires_human_choice": false,
+          "routing": "mock_backend",
+          "seam": "c:@F@CFE_ES_RunLoop",
+          "superseded_spelling": null,
+          "value": null
+        },
+        {
+          "backend": "cfs-utstub",
+          "effect": "return_value",
+          "provenance": "annotation",
+          "provenance_detail": "sidecar apps/ci_lab/unit-test/annotations/ci_lab_app.toml:7 covmock:test main_skips_pipe_and_uplink_on_errors",
+          "rendered": true,
+          "requires_human_choice": false,
+          "routing": "mock_backend",
+          "seam": "c:@F@CFE_SB_ReceiveBuffer",
+          "superseded_spelling": null,
+          "value": "-1"
+        },
+        {
+          "backend": "cfs-utstub",
+          "effect": "return_value",
+          "provenance": "annotation",
+          "provenance_detail": "sidecar apps/ci_lab/unit-test/annotations/ci_lab_app.toml:7 covmock:test main_skips_pipe_and_uplink_on_errors",
+          "rendered": true,
+          "requires_human_choice": false,
+          "routing": "mock_backend",
+          "seam": "c:@F@OS_SocketBind",
+          "superseded_spelling": null,
+          "value": "-1"
+        }
+      ],
+      "callable": {
+        "defining_header": "apps/ci_lab/fsw/src/ci_lab_app.h",
+        "display_name": "CI_LAB_AppMain()",
+        "language_linkage": "c",
+        "linkage": "external",
+        "namespaces": [],
+        "overload_signature": "()",
+        "owner": null,
+        "qualified_name": "CI_LAB_AppMain",
+        "return_type": "void",
+        "unqualified_name": "CI_LAB_AppMain",
+        "usr": "c:@F@CI_LAB_AppMain"
+      },
+      "case": "main_skips_pipe_and_uplink_on_errors",
+      "confidence": "medium",
+      "confidence_limited_by": [
+        "outcome_identity"
+      ],
+      "desired_outcome": "line_executed",
+      "diagnostics": [
+        {
+          "code": "NO_CONTROLLING_DECISION",
+          "details": [],
+          "explanation": "no decision arm in CI_LAB_AppMain() encloses apps/ci_lab/fsw/src/ci_lab_app.c:56 syntactically. Whether an earlier exit guards the line is a control-dependence question answered by the M4 slice (#30); the line otherwise executes whenever the function does.",
+          "remedy": null,
+          "severity": "note",
+          "span": null
+        }
+      ],
+      "expectations": [
+        {
+          "asserted": true,
+          "backend": "cfs-utstub",
+          "count": 1,
+          "kind": "call_count_equals",
+          "missing_capabilities": [],
+          "observable": true,
+          "parameter_index": null,
+          "provenance": "annotation",
+          "provenance_detail": "sidecar apps/ci_lab/unit-test/annotations/ci_lab_app.toml:7 covmock:test main_skips_pipe_and_uplink_on_errors",
+          "seam": "c:@F@CFE_ES_ExitApp",
+          "subject": "CFE_ES_ExitApp",
+          "unobservable_reason": null,
+          "value": null
+        },
+        {
+          "asserted": true,
+          "backend": "cfs-utstub",
+          "count": 0,
+          "kind": "call_count_equals",
+          "missing_capabilities": [],
+          "observable": true,
+          "parameter_index": null,
+          "provenance": "annotation",
+          "provenance_detail": "sidecar apps/ci_lab/unit-test/annotations/ci_lab_app.toml:7 covmock:test main_skips_pipe_and_uplink_on_errors",
+          "seam": "c:@F@CI_LAB_TaskPipe",
+          "subject": "CI_LAB_TaskPipe",
+          "unobservable_reason": null,
+          "value": null
+        },
+        {
+          "asserted": true,
+          "backend": "cfs-utstub",
+          "count": 0,
+          "kind": "call_count_equals",
+          "missing_capabilities": [],
+          "observable": true,
+          "parameter_index": null,
+          "provenance": "annotation",
+          "provenance_detail": "sidecar apps/ci_lab/unit-test/annotations/ci_lab_app.toml:7 covmock:test main_skips_pipe_and_uplink_on_errors",
+          "seam": "c:@F@OS_SocketRecvFrom",
+          "subject": "OS_SocketRecvFrom",
+          "unobservable_reason": null,
+          "value": null
+        }
+      ],
+      "fixture": "CI_LAB_AppMain_covmock",
+      "gap": {
+        "block": null,
+        "branch": null,
+        "condition": "",
+        "evaluated": false,
+        "kind": "line",
+        "line": 56,
+        "origin": "lcov_da",
+        "source_file": "apps/ci_lab/fsw/src/ci_lab_app.c"
+      },
+      "invocation": {
+        "arguments": [],
+        "call_emitted": true,
+        "placeholder_parameters": [],
+        "setup_statements": [],
+        "unresolved_parameters": []
+      },
+      "missing_facts": [],
+      "name": "main_skips_pipe_and_uplink_on_errors",
+      "output": "tests/test_CI_LAB_AppMain.c",
+      "requirement_ids": [],
+      "review_state": "reviewed",
+      "seams": [
+        {
+          "backend": "cfs-utstub",
+          "kind": "external_function",
+          "spelling": "CFE_ES_ExitApp(unsigned int)",
+          "unsupported_code": null,
+          "unsupported_reason": null,
+          "usr": "c:@F@CFE_ES_ExitApp"
+        },
+        {
+          "backend": "cfs-utstub",
+          "kind": "external_function",
+          "spelling": "CFE_ES_RunLoop(unsigned int *)",
+          "unsupported_code": null,
+          "unsupported_reason": null,
+          "usr": "c:@F@CFE_ES_RunLoop"
+        },
+        {
+          "backend": "cfs-utstub",
+          "kind": "external_function",
+          "spelling": "CFE_SB_ReceiveBuffer(CFE_SB_Msg **, unsigned int, int)",
+          "unsupported_code": null,
+          "unsupported_reason": null,
+          "usr": "c:@F@CFE_SB_ReceiveBuffer"
+        },
+        {
+          "backend": "cfs-utstub",
+          "kind": "external_function",
+          "spelling": "CI_LAB_TaskPipe(const CFE_SB_Msg *)",
+          "unsupported_code": null,
+          "unsupported_reason": null,
+          "usr": "c:@F@CI_LAB_TaskPipe"
+        },
+        {
+          "backend": "cfs-utstub",
+          "kind": "external_function",
+          "spelling": "OS_SocketBind(unsigned int, const OS_SockAddr_t *)",
+          "unsupported_code": null,
+          "unsupported_reason": null,
+          "usr": "c:@F@OS_SocketBind"
+        },
+        {
+          "backend": "cfs-utstub",
+          "kind": "external_function",
+          "spelling": "OS_SocketRecvFrom(unsigned int, void *, unsigned long, OS_SockAddr_t *, int)",
+          "unsupported_code": null,
+          "unsupported_reason": null,
+          "usr": "c:@F@OS_SocketRecvFrom"
+        }
+      ],
+      "skip_reason": "",
+      "spec_id": "6c47654f4ffeb085e6b1f9dcab45c573"
+    },
+    {
+      "active": true,
+      "annotation": {
+        "location": "apps/ci_lab/unit-test/annotations/ci_lab_app.toml:4",
+        "name": "read_uplink_stops_without_a_buffer",
+        "origin": "sidecar",
+        "review_state": "reviewed"
+      },
+      "arrangements": [
+        {
+          "backend": null,
+          "effect": "unsupported",
+          "provenance": "inferred",
+          "provenance_detail": "analyzer constraint solution (none)",
+          "rendered": false,
+          "requires_human_choice": false,
+          "routing": "unrouted",
+          "seam": "c:@F@CFE_ES_PerfLogAdd",
+          "superseded_spelling": null,
+          "value": ""
+        },
+        {
+          "backend": null,
+          "effect": "unsupported",
+          "provenance": "inferred",
+          "provenance_detail": "analyzer constraint solution (none)",
+          "rendered": false,
+          "requires_human_choice": false,
+          "routing": "unrouted",
+          "seam": "c:@F@CFE_ES_PerfLogAdd",
+          "superseded_spelling": null,
+          "value": ""
+        },
+        {
+          "backend": null,
+          "effect": "unsupported",
+          "provenance": "inferred",
+          "provenance_detail": "analyzer constraint solution (none)",
+          "rendered": false,
+          "requires_human_choice": false,
+          "routing": "unrouted",
+          "seam": "c:@F@CFE_EVS_SendEvent",
+          "superseded_spelling": null,
+          "value": ""
+        },
+        {
+          "backend": null,
+          "effect": "unsupported",
+          "provenance": "inferred",
+          "provenance_detail": "analyzer constraint solution (none)",
+          "rendered": false,
+          "requires_human_choice": false,
+          "routing": "unrouted",
+          "seam": "c:@F@CFE_SB_TransmitBuffer",
+          "superseded_spelling": null,
+          "value": ""
+        },
+        {
+          "backend": null,
+          "effect": "unsupported",
+          "provenance": "inferred",
+          "provenance_detail": "analyzer constraint solution (none)",
+          "rendered": false,
+          "requires_human_choice": false,
+          "routing": "unrouted",
+          "seam": "c:@F@CFE_SB_TransmitBuffer",
+          "superseded_spelling": null,
+          "value": ""
+        },
+        {
+          "backend": null,
+          "effect": "unsupported",
+          "provenance": "inferred",
+          "provenance_detail": "analyzer constraint solution (none)",
+          "rendered": false,
+          "requires_human_choice": false,
+          "routing": "unrouted",
+          "seam": "c:@F@CI_LAB_DecodeInputMessage",
+          "superseded_spelling": null,
+          "value": ""
+        },
+        {
+          "backend": null,
+          "effect": "unsupported",
+          "provenance": "inferred",
+          "provenance_detail": "analyzer constraint solution (none)",
+          "rendered": false,
+          "requires_human_choice": false,
+          "routing": "unrouted",
+          "seam": "c:@F@CI_LAB_DecodeInputMessage",
+          "superseded_spelling": null,
+          "value": ""
+        },
+        {
+          "backend": null,
+          "effect": "output_parameter_value",
+          "provenance": "inferred",
+          "provenance_detail": "analyzer constraint solution (pointer_null)",
+          "rendered": false,
+          "requires_human_choice": false,
+          "routing": "unrouted",
+          "seam": "c:@F@CI_LAB_GetInputBuffer",
+          "superseded_spelling": null,
+          "value": "NULL"
+        },
+        {
+          "backend": null,
+          "effect": "unsupported",
+          "provenance": "inferred",
+          "provenance_detail": "analyzer constraint solution (none)",
+          "rendered": false,
+          "requires_human_choice": false,
+          "routing": "unrouted",
+          "seam": "c:@F@OS_SocketRecvFrom",
+          "superseded_spelling": null,
+          "value": ""
+        },
+        {
+          "backend": null,
+          "effect": "unsupported",
+          "provenance": "inferred",
+          "provenance_detail": "analyzer constraint solution (none)",
+          "rendered": false,
+          "requires_human_choice": false,
+          "routing": "unrouted",
+          "seam": "c:@F@OS_SocketRecvFrom",
+          "superseded_spelling": null,
+          "value": ""
+        },
+        {
+          "backend": null,
+          "effect": "unsupported",
+          "provenance": "inferred",
+          "provenance_detail": "analyzer constraint solution (constant_alternative)",
+          "rendered": false,
+          "requires_human_choice": false,
+          "routing": "unrouted",
+          "seam": "sha256:06e7c3b559678c022cd77ae0df175f05517e9ff32501765429c62134769f5878",
+          "superseded_spelling": null,
+          "value": "NULL"
+        },
+        {
+          "backend": null,
+          "effect": "global_value",
+          "provenance": "inferred",
+          "provenance_detail": "analyzer constraint solution (pointer_null)",
+          "rendered": false,
+          "requires_human_choice": false,
+          "routing": "direct",
+          "seam": "sha256:58e45a0013286247ad8cca58967e444df05b8b85910b2a48064f37d7f645fc6b",
+          "superseded_spelling": null,
+          "value": "NULL"
+        }
+      ],
+      "callable": {
+        "defining_header": "apps/ci_lab/fsw/src/ci_lab_app.h",
+        "display_name": "CI_LAB_ReadUpLink()",
+        "language_linkage": "c",
+        "linkage": "external",
+        "namespaces": [],
+        "overload_signature": "()",
+        "owner": null,
+        "qualified_name": "CI_LAB_ReadUpLink",
+        "return_type": "void",
+        "unqualified_name": "CI_LAB_ReadUpLink",
+        "usr": "c:@F@CI_LAB_ReadUpLink"
+      },
+      "case": "read_uplink_stops_without_a_buffer",
+      "confidence": "none",
+      "confidence_limited_by": [
+        "mockability"
+      ],
+      "desired_outcome": "line_executed",
+      "diagnostics": [
+        {
+          "code": "AMBIGUOUS_ARRANGEMENT",
+          "details": [
+            " (analyzer constraint solution (none))",
+            " (analyzer constraint solution (none))"
+          ],
+          "explanation": "2 arrangements claim c:@F@CFE_ES_PerfLogAdd unsupported: covmock keeps all of them and chooses between none, because an annotation naming that slot cannot say which one it means",
+          "remedy": "Two solutions for one slot is an analysis result worth reporting; until it is resolved, review the generated arrangements for this seam by hand.",
+          "severity": "warning",
+          "span": {
+            "column": 1,
+            "file": "apps/ci_lab/unit-test/annotations/ci_lab_app.toml",
+            "line": 4
+          }
+        },
+        {
+          "code": "AMBIGUOUS_ARRANGEMENT",
+          "details": [
+            " (analyzer constraint solution (none))",
+            " (analyzer constraint solution (none))"
+          ],
+          "explanation": "2 arrangements claim c:@F@CFE_SB_TransmitBuffer unsupported: covmock keeps all of them and chooses between none, because an annotation naming that slot cannot say which one it means",
+          "remedy": "Two solutions for one slot is an analysis result worth reporting; until it is resolved, review the generated arrangements for this seam by hand.",
+          "severity": "warning",
+          "span": {
+            "column": 1,
+            "file": "apps/ci_lab/unit-test/annotations/ci_lab_app.toml",
+            "line": 4
+          }
+        },
+        {
+          "code": "AMBIGUOUS_ARRANGEMENT",
+          "details": [
+            " (analyzer constraint solution (none))",
+            " (analyzer constraint solution (none))"
+          ],
+          "explanation": "2 arrangements claim c:@F@CI_LAB_DecodeInputMessage unsupported: covmock keeps all of them and chooses between none, because an annotation naming that slot cannot say which one it means",
+          "remedy": "Two solutions for one slot is an analysis result worth reporting; until it is resolved, review the generated arrangements for this seam by hand.",
+          "severity": "warning",
+          "span": {
+            "column": 1,
+            "file": "apps/ci_lab/unit-test/annotations/ci_lab_app.toml",
+            "line": 4
+          }
+        },
+        {
+          "code": "AMBIGUOUS_ARRANGEMENT",
+          "details": [
+            " (analyzer constraint solution (none))",
+            " (analyzer constraint solution (none))"
+          ],
+          "explanation": "2 arrangements claim c:@F@OS_SocketRecvFrom unsupported: covmock keeps all of them and chooses between none, because an annotation naming that slot cannot say which one it means",
+          "remedy": "Two solutions for one slot is an analysis result worth reporting; until it is resolved, review the generated arrangements for this seam by hand.",
+          "severity": "warning",
+          "span": {
+            "column": 1,
+            "file": "apps/ci_lab/unit-test/annotations/ci_lab_app.toml",
+            "line": 4
+          }
+        },
+        {
+          "code": "CONTROL_REQUIREMENTS",
+          "details": [],
+          "explanation": "path condition to reach the if at apps/ci_lab/fsw/src/ci_lab_app.c:241:13: (`i <= CI_LAB_PLATFORM_MAX_INGEST_PKTS` is true). Per-definition requirements: `i <= CI_LAB_PLATFORM_MAX_INGEST_PKTS` is true; `CI_LAB_Global . NetBufPtr == NULL` is false; `OsStatus > 0` is true; `i <= CI_LAB_PLATFORM_MAX_INGEST_PKTS` is true; `CfeStatus == CFE_SUCCESS` is false; `CfeStatus == CFE_SUCCESS` is true; `CfeStatus == CFE_SUCCESS` is false; `CfeStatus != CFE_SUCCESS` is false; `OsStatus > 0` is true; `CI_LAB_Global . NetBufPtr == NULL` is true; `CI_LAB_Global . NetBufPtr == NULL` is false. A mock return that satisfies the comparison is useless unless these hold.",
+          "remedy": null,
+          "severity": "note",
+          "span": null
+        },
+        {
+          "code": "LOOP_CARRIED_REQUIREMENT",
+          "details": [],
+          "explanation": "reaching the if at apps/ci_lab/fsw/src/ci_lab_app.c:241:13 with the required value needs `CI_LAB_Global . NetBufPtr == NULL` is false on a loop condition the path re-evaluates; the analysis does not unroll the loop or guess how many iterations run.",
+          "remedy": null,
+          "severity": "warning",
+          "span": null
+        },
+        {
+          "code": "LOOP_CARRIED_REQUIREMENT",
+          "details": [],
+          "explanation": "reaching the if at apps/ci_lab/fsw/src/ci_lab_app.c:241:13 with the required value needs `CI_LAB_Global . NetBufPtr == NULL` is false on a loop condition the path re-evaluates; the analysis does not unroll the loop or guess how many iterations run.",
+          "remedy": null,
+          "severity": "warning",
+          "span": null
+        },
+        {
+          "code": "LOOP_CARRIED_REQUIREMENT",
+          "details": [],
+          "explanation": "reaching the if at apps/ci_lab/fsw/src/ci_lab_app.c:241:13 with the required value needs `CI_LAB_Global . NetBufPtr == NULL` is true on a loop condition the path re-evaluates; the analysis does not unroll the loop or guess how many iterations run.",
+          "remedy": null,
+          "severity": "warning",
+          "span": null
+        },
+        {
+          "code": "LOOP_CARRIED_REQUIREMENT",
+          "details": [],
+          "explanation": "reaching the if at apps/ci_lab/fsw/src/ci_lab_app.c:241:13 with the required value needs `CfeStatus != CFE_SUCCESS` is false on a loop condition the path re-evaluates; the analysis does not unroll the loop or guess how many iterations run.",
+          "remedy": null,
+          "severity": "warning",
+          "span": null
+        },
+        {
+          "code": "LOOP_CARRIED_REQUIREMENT",
+          "details": [],
+          "explanation": "reaching the if at apps/ci_lab/fsw/src/ci_lab_app.c:241:13 with the required value needs `CfeStatus == CFE_SUCCESS` is false on a loop condition the path re-evaluates; the analysis does not unroll the loop or guess how many iterations run.",
+          "remedy": null,
+          "severity": "warning",
+          "span": null
+        },
+        {
+          "code": "LOOP_CARRIED_REQUIREMENT",
+          "details": [],
+          "explanation": "reaching the if at apps/ci_lab/fsw/src/ci_lab_app.c:241:13 with the required value needs `CfeStatus == CFE_SUCCESS` is false on a loop condition the path re-evaluates; the analysis does not unroll the loop or guess how many iterations run.",
+          "remedy": null,
+          "severity": "warning",
+          "span": null
+        },
+        {
+          "code": "LOOP_CARRIED_REQUIREMENT",
+          "details": [],
+          "explanation": "reaching the if at apps/ci_lab/fsw/src/ci_lab_app.c:241:13 with the required value needs `CfeStatus == CFE_SUCCESS` is true on a loop condition the path re-evaluates; the analysis does not unroll the loop or guess how many iterations run.",
+          "remedy": null,
+          "severity": "warning",
+          "span": null
+        },
+        {
+          "code": "LOOP_CARRIED_REQUIREMENT",
+          "details": [],
+          "explanation": "reaching the if at apps/ci_lab/fsw/src/ci_lab_app.c:241:13 with the required value needs `OsStatus > 0` is true on a loop condition the path re-evaluates; the analysis does not unroll the loop or guess how many iterations run.",
+          "remedy": null,
+          "severity": "warning",
+          "span": null
+        },
+        {
+          "code": "LOOP_CARRIED_REQUIREMENT",
+          "details": [],
+          "explanation": "reaching the if at apps/ci_lab/fsw/src/ci_lab_app.c:241:13 with the required value needs `OsStatus > 0` is true on a loop condition the path re-evaluates; the analysis does not unroll the loop or guess how many iterations run.",
+          "remedy": null,
+          "severity": "warning",
+          "span": null
+        },
+        {
+          "code": "LOOP_CARRIED_REQUIREMENT",
+          "details": [],
+          "explanation": "reaching the if at apps/ci_lab/fsw/src/ci_lab_app.c:241:13 with the required value needs `i <= CI_LAB_PLATFORM_MAX_INGEST_PKTS` is true on a loop condition the path re-evaluates; the analysis does not unroll the loop or guess how many iterations run.",
+          "remedy": null,
+          "severity": "warning",
+          "span": null
+        },
+        {
+          "code": "LOOP_CARRIED_REQUIREMENT",
+          "details": [],
+          "explanation": "reaching the if at apps/ci_lab/fsw/src/ci_lab_app.c:241:13 with the required value needs `i <= CI_LAB_PLATFORM_MAX_INGEST_PKTS` is true on a loop condition the path re-evaluates; the analysis does not unroll the loop or guess how many iterations run.",
+          "remedy": null,
+          "severity": "warning",
+          "span": null
+        },
+        {
+          "code": "NO_CONTROLLABLE_SEAM",
+          "details": [],
+          "explanation": "the slice from the if at apps/ci_lab/fsw/src/ci_lab_app.c:241:13 ends at 9 endpoint(s) no test can arrange: unknown: 'CI_LAB_Global.NetBufPtr' may be written by a call with no summary: 'CI_LAB_Global.NetBufPtr' may be written by the call: no summary describes the callee; unknown: 'CI_LAB_Global.NetBufPtr' may be written by a call with no summary: 'CI_LAB_Global.NetBufPtr' may be written by the call: no summary describes the callee; unknown: 'CI_LAB_Global.NetBufPtr' may be written by a call with no summary: 'CI_LAB_Global.NetBufPtr' may be written by the call: no summary describes the callee; unknown: 'CI_LAB_Global.NetBufPtr' may be written by a call with no summary: 'CI_LAB_Global.NetBufPtr' may be written by the call: no summary describes the callee; unknown: 'CI_LAB_Global.NetBufPtr' may be the unknown memory written here: 'CI_LAB_Global.NetBufPtr' may be the unknown memory written here; unknown: 'CI_LAB_Global.NetBufPtr' may be written by a call with no summary: 'CI_LAB_Global.NetBufPtr' may be written by the call: no summary describes the callee; unknown: 'CI_LAB_Global.NetBufPtr' may be the unknown memory written here: 'CI_LAB_Global.NetBufPtr' may be the unknown memory written here; unknown: 'CI_LAB_Global.NetBufPtr' may be written by a call with no summary: 'CI_LAB_Global.NetBufPtr' may be written by the call: no summary describes the callee; unknown: 'CI_LAB_Global.NetBufPtr' may be the unknown memory written here: 'CI_LAB_Global.NetBufPtr' may be the unknown memory written here. A fake for such a symbol would link and run without intercepting anything; an adapter recommendation is M5's.",
+          "remedy": null,
+          "severity": "warning",
+          "span": null
+        },
+        {
+          "code": "READINESS",
+          "details": [
+            "complete_slice_to_controllable_seam: 1 location read(s), 12 reaching definition(s), 0 call(s) in the condition; 'CI_LAB_Global.NetBufPtr' holds pointee memory the function never writes; it is external state, not a value a mock returns; slice: 14 node(s), 25 edge(s), 12 endpoint(s) [constant=1, global_value=1, output_parameter=1, unknown=9], complete, not every endpoint controllable; limited by: 'CI_LAB_Global.NetBufPtr' holds pointee memory the function never writes; it is external state, not a value a mock returns",
+            "control_requirements_modelled: the required decision (`i <= CI_LAB_PLATFORM_MAX_INGEST_PKTS` is true) is a loop condition the block can reach again; iteration counts are not modelled -- 11 control requirement(s): `i <= CI_LAB_PLATFORM_MAX_INGEST_PKTS` is true; `CI_LAB_Global . NetBufPtr == NULL` is false; `OsStatus > 0` is true; `i <= CI_LAB_PLATFORM_MAX_INGEST_PKTS` is true; `CfeStatus == CFE_SUCCESS` is false; `CfeStatus == CFE_SUCCESS` is true; `CfeStatus == CFE_SUCCESS` is false; `CfeStatus != CFE_SUCCESS` is false; `OsStatus > 0` is true; `CI_LAB_Global . NetBufPtr == NULL` is true; `CI_LAB_Global . NetBufPtr == NULL` is false"
+          ],
+          "explanation": "placeholder arrangement: missing complete_slice_to_controllable_seam, control_requirements_modelled. The slice, endpoints and constraint above say what is known; what is missing needs an annotation, an adapter, or an engineer.",
+          "remedy": null,
+          "severity": "warning",
+          "span": null
+        },
+        {
+          "code": "UNKNOWN_CALL_EFFECT",
+          "details": [],
+          "explanation": "'CI_LAB_Global.NetBufPtr' may be defined by a write to unknown memory: 'CI_LAB_Global.NetBufPtr' may be the unknown memory written here",
+          "remedy": null,
+          "severity": "warning",
+          "span": null
+        },
+        {
+          "code": "UNKNOWN_CALL_EFFECT",
+          "details": [],
+          "explanation": "'CI_LAB_Global.NetBufPtr' may be written by a call with no summary: 'CI_LAB_Global.NetBufPtr' may be written by the call: no summary describes the callee",
+          "remedy": null,
+          "severity": "warning",
+          "span": null
+        },
+        {
+          "code": "UNKNOWN_CALL_EFFECT",
+          "details": [],
+          "explanation": "'CI_LAB_Global.NetBufPtr' may be written by a call with no summary: 'CI_LAB_Global.NetBufPtr': its address is passed to a call whose parameter is a non-const pointer; the callee may or may not write it, so this is a may-definition beside the earlier ones",
+          "remedy": null,
+          "severity": "warning",
+          "span": null
+        }
+      ],
+      "expectations": [
+        {
+          "asserted": false,
+          "backend": null,
+          "count": 1,
+          "kind": "call_count_equals",
+          "missing_capabilities": [],
+          "observable": null,
+          "parameter_index": null,
+          "provenance": "annotation",
+          "provenance_detail": "sidecar apps/ci_lab/unit-test/annotations/ci_lab_app.toml:4 covmock:test read_uplink_stops_without_a_buffer",
+          "seam": "c:@F@CI_LAB_GetInputBuffer",
+          "subject": "CI_LAB_GetInputBuffer",
+          "unobservable_reason": null,
+          "value": null
+        },
+        {
+          "asserted": false,
+          "backend": null,
+          "count": 0,
+          "kind": "call_count_equals",
+          "missing_capabilities": [],
+          "observable": null,
+          "parameter_index": null,
+          "provenance": "annotation",
+          "provenance_detail": "sidecar apps/ci_lab/unit-test/annotations/ci_lab_app.toml:4 covmock:test read_uplink_stops_without_a_buffer",
+          "seam": "c:@F@OS_SocketRecvFrom",
+          "subject": "OS_SocketRecvFrom",
+          "unobservable_reason": null,
+          "value": null
+        }
+      ],
+      "fixture": "CI_LAB_ReadUpLink_covmock",
+      "gap": {
+        "block": null,
+        "branch": null,
+        "condition": "CI_LAB_Global . NetBufPtr == NULL",
+        "evaluated": false,
+        "kind": "line",
+        "line": 243,
+        "origin": "lcov_da",
+        "source_file": "apps/ci_lab/fsw/src/ci_lab_app.c"
+      },
+      "invocation": {
+        "arguments": [],
+        "call_emitted": true,
+        "placeholder_parameters": [],
+        "setup_statements": [],
+        "unresolved_parameters": []
+      },
+      "missing_facts": [
+        "AMBIGUOUS_ARRANGEMENT: 2 arrangements claim c:@F@CFE_ES_PerfLogAdd unsupported: covmock keeps all of them and chooses between none, because an annotation naming that slot cannot say which one it means (Two solutions for one slot is an analysis result worth reporting; until it is resolved, review the generated arrangements for this seam by hand.)",
+        "AMBIGUOUS_ARRANGEMENT: 2 arrangements claim c:@F@CFE_SB_TransmitBuffer unsupported: covmock keeps all of them and chooses between none, because an annotation naming that slot cannot say which one it means (Two solutions for one slot is an analysis result worth reporting; until it is resolved, review the generated arrangements for this seam by hand.)",
+        "AMBIGUOUS_ARRANGEMENT: 2 arrangements claim c:@F@CI_LAB_DecodeInputMessage unsupported: covmock keeps all of them and chooses between none, because an annotation naming that slot cannot say which one it means (Two solutions for one slot is an analysis result worth reporting; until it is resolved, review the generated arrangements for this seam by hand.)",
+        "AMBIGUOUS_ARRANGEMENT: 2 arrangements claim c:@F@OS_SocketRecvFrom unsupported: covmock keeps all of them and chooses between none, because an annotation naming that slot cannot say which one it means (Two solutions for one slot is an analysis result worth reporting; until it is resolved, review the generated arrangements for this seam by hand.)",
+        "LOOP_CARRIED_REQUIREMENT: reaching the if at apps/ci_lab/fsw/src/ci_lab_app.c:241:13 with the required value needs `CI_LAB_Global . NetBufPtr == NULL` is false on a loop condition the path re-evaluates; the analysis does not unroll the loop or guess how many iterations run.",
+        "LOOP_CARRIED_REQUIREMENT: reaching the if at apps/ci_lab/fsw/src/ci_lab_app.c:241:13 with the required value needs `CI_LAB_Global . NetBufPtr == NULL` is true on a loop condition the path re-evaluates; the analysis does not unroll the loop or guess how many iterations run.",
+        "LOOP_CARRIED_REQUIREMENT: reaching the if at apps/ci_lab/fsw/src/ci_lab_app.c:241:13 with the required value needs `CfeStatus != CFE_SUCCESS` is false on a loop condition the path re-evaluates; the analysis does not unroll the loop or guess how many iterations run.",
+        "LOOP_CARRIED_REQUIREMENT: reaching the if at apps/ci_lab/fsw/src/ci_lab_app.c:241:13 with the required value needs `CfeStatus == CFE_SUCCESS` is false on a loop condition the path re-evaluates; the analysis does not unroll the loop or guess how many iterations run.",
+        "LOOP_CARRIED_REQUIREMENT: reaching the if at apps/ci_lab/fsw/src/ci_lab_app.c:241:13 with the required value needs `CfeStatus == CFE_SUCCESS` is true on a loop condition the path re-evaluates; the analysis does not unroll the loop or guess how many iterations run.",
+        "LOOP_CARRIED_REQUIREMENT: reaching the if at apps/ci_lab/fsw/src/ci_lab_app.c:241:13 with the required value needs `OsStatus > 0` is true on a loop condition the path re-evaluates; the analysis does not unroll the loop or guess how many iterations run.",
+        "LOOP_CARRIED_REQUIREMENT: reaching the if at apps/ci_lab/fsw/src/ci_lab_app.c:241:13 with the required value needs `i <= CI_LAB_PLATFORM_MAX_INGEST_PKTS` is true on a loop condition the path re-evaluates; the analysis does not unroll the loop or guess how many iterations run.",
+        "NO_CONTROLLABLE_SEAM: the slice from the if at apps/ci_lab/fsw/src/ci_lab_app.c:241:13 ends at 9 endpoint(s) no test can arrange: unknown: 'CI_LAB_Global.NetBufPtr' may be written by a call with no summary: 'CI_LAB_Global.NetBufPtr' may be written by the call: no summary describes the callee; unknown: 'CI_LAB_Global.NetBufPtr' may be written by a call with no summary: 'CI_LAB_Global.NetBufPtr' may be written by the call: no summary describes the callee; unknown: 'CI_LAB_Global.NetBufPtr' may be written by a call with no summary: 'CI_LAB_Global.NetBufPtr' may be written by the call: no summary describes the callee; unknown: 'CI_LAB_Global.NetBufPtr' may be written by a call with no summary: 'CI_LAB_Global.NetBufPtr' may be written by the call: no summary describes the callee; unknown: 'CI_LAB_Global.NetBufPtr' may be the unknown memory written here: 'CI_LAB_Global.NetBufPtr' may be the unknown memory written here; unknown: 'CI_LAB_Global.NetBufPtr' may be written by a call with no summary: 'CI_LAB_Global.NetBufPtr' may be written by the call: no summary describes the callee; unknown: 'CI_LAB_Global.NetBufPtr' may be the unknown memory written here: 'CI_LAB_Global.NetBufPtr' may be the unknown memory written here; unknown: 'CI_LAB_Global.NetBufPtr' may be written by a call with no summary: 'CI_LAB_Global.NetBufPtr' may be written by the call: no summary describes the callee; unknown: 'CI_LAB_Global.NetBufPtr' may be the unknown memory written here: 'CI_LAB_Global.NetBufPtr' may be the unknown memory written here. A fake for such a symbol would link and run without intercepting anything; an adapter recommendation is M5's.",
+        "READINESS: placeholder arrangement: missing complete_slice_to_controllable_seam, control_requirements_modelled. The slice, endpoints and constraint above say what is known; what is missing needs an annotation, an adapter, or an engineer.",
+        "UNKNOWN_CALL_EFFECT: 'CI_LAB_Global.NetBufPtr' may be defined by a write to unknown memory: 'CI_LAB_Global.NetBufPtr' may be the unknown memory written here",
+        "UNKNOWN_CALL_EFFECT: 'CI_LAB_Global.NetBufPtr' may be written by a call with no summary: 'CI_LAB_Global.NetBufPtr' may be written by the call: no summary describes the callee",
+        "UNKNOWN_CALL_EFFECT: 'CI_LAB_Global.NetBufPtr' may be written by a call with no summary: 'CI_LAB_Global.NetBufPtr': its address is passed to a call whose parameter is a non-const pointer; the callee may or may not write it, so this is a may-definition beside the earlier ones",
+        "no registered mock backend claimed seam CFE_ES_PerfLogAdd (c:@F@CFE_ES_PerfLogAdd), so its unsupported arrangement was not rendered",
+        "no registered mock backend claimed seam CFE_EVS_SendEvent (c:@F@CFE_EVS_SendEvent), so its unsupported arrangement was not rendered",
+        "no registered mock backend claimed seam CFE_SB_TransmitBuffer (c:@F@CFE_SB_TransmitBuffer), so its unsupported arrangement was not rendered",
+        "no registered mock backend claimed seam CI_LAB_DecodeInputMessage (c:@F@CI_LAB_DecodeInputMessage), so its unsupported arrangement was not rendered",
+        "no registered mock backend claimed seam CI_LAB_GetInputBuffer (c:@F@CI_LAB_GetInputBuffer), so its output_parameter_value arrangement was not rendered",
+        "no registered mock backend claimed seam CI_LAB_Global.NetBufPtr (sha256:06e7c3b559678c022cd77ae0df175f05517e9ff32501765429c62134769f5878), so its unsupported arrangement was not rendered",
+        "no registered mock backend claimed seam OS_SocketRecvFrom (c:@F@OS_SocketRecvFrom), so its unsupported arrangement was not rendered",
+        "seam CFE_ES_PerfLogAdd (external_function) cannot be controlled: NO_CONTROLLABLE_SEAM -- the analyzer reported CFE_ES_PerfLogAdd as not controllable: 'CI_LAB_Global.NetBufPtr' may be written by a call with no summary: 'CI_LAB_Global.NetBufPtr' may be written by the call: no summary describes the callee",
+        "seam CFE_EVS_SendEvent (external_function) cannot be controlled: NO_CONTROLLABLE_SEAM -- the analyzer reported CFE_EVS_SendEvent as not controllable: 'CI_LAB_Global.NetBufPtr' may be written by a call with no summary: 'CI_LAB_Global.NetBufPtr' may be written by the call: no summary describes the callee",
+        "seam CFE_SB_TransmitBuffer (external_function) cannot be controlled: NO_CONTROLLABLE_SEAM -- the analyzer reported CFE_SB_TransmitBuffer as not controllable: 'CI_LAB_Global.NetBufPtr' may be the unknown memory written here: 'CI_LAB_Global.NetBufPtr' may be the unknown memory written here",
+        "seam CFE_SB_TransmitBuffer (external_function) cannot be controlled: NO_CONTROLLABLE_SEAM -- the analyzer reported CFE_SB_TransmitBuffer as not controllable: 'CI_LAB_Global.NetBufPtr' may be written by a call with no summary: 'CI_LAB_Global.NetBufPtr' may be written by the call: no summary describes the callee",
+        "seam CI_LAB_DecodeInputMessage (external_function) cannot be controlled: NO_CONTROLLABLE_SEAM -- the analyzer reported CI_LAB_DecodeInputMessage as not controllable: 'CI_LAB_Global.NetBufPtr' may be the unknown memory written here: 'CI_LAB_Global.NetBufPtr' may be the unknown memory written here",
+        "seam CI_LAB_DecodeInputMessage (external_function) cannot be controlled: NO_CONTROLLABLE_SEAM -- the analyzer reported CI_LAB_DecodeInputMessage as not controllable: 'CI_LAB_Global.NetBufPtr' may be written by a call with no summary: 'CI_LAB_Global.NetBufPtr' may be written by the call: no summary describes the callee",
+        "seam CI_LAB_GetInputBuffer (output_parameter) cannot be controlled: BACKEND_NOT_IMPLEMENTED -- backend 'cfs-utstub' was requested but cannot render CI_LAB_GetInputBuffer.",
+        "seam OS_SocketRecvFrom (external_function) cannot be controlled: NO_CONTROLLABLE_SEAM -- the analyzer reported OS_SocketRecvFrom as not controllable: 'CI_LAB_Global.NetBufPtr' may be the unknown memory written here: 'CI_LAB_Global.NetBufPtr' may be the unknown memory written here",
+        "seam OS_SocketRecvFrom (external_function) cannot be controlled: NO_CONTROLLABLE_SEAM -- the analyzer reported OS_SocketRecvFrom as not controllable: 'CI_LAB_Global.NetBufPtr' may be written by a call with no summary: 'CI_LAB_Global.NetBufPtr' may be written by the call: no summary describes the callee"
+      ],
+      "name": "read_uplink_stops_without_a_buffer",
+      "output": "tests/test_CI_LAB_ReadUpLink.c",
+      "requirement_ids": [],
+      "review_state": "reviewed",
+      "seams": [
+        {
+          "backend": null,
+          "kind": "external_function",
+          "spelling": "CFE_ES_PerfLogAdd",
+          "unsupported_code": "NO_CONTROLLABLE_SEAM",
+          "unsupported_reason": "the analyzer reported CFE_ES_PerfLogAdd as not controllable: 'CI_LAB_Global.NetBufPtr' may be written by a call with no summary: 'CI_LAB_Global.NetBufPtr' may be written by the call: no summary describes the callee",
+          "usr": "c:@F@CFE_ES_PerfLogAdd"
+        },
+        {
+          "backend": null,
+          "kind": "external_function",
+          "spelling": "CFE_ES_PerfLogAdd",
+          "unsupported_code": "NO_CONTROLLABLE_SEAM",
+          "unsupported_reason": "the analyzer reported CFE_ES_PerfLogAdd as not controllable: 'CI_LAB_Global.NetBufPtr' may be written by a call with no summary: 'CI_LAB_Global.NetBufPtr' may be written by the call: no summary describes the callee",
+          "usr": "c:@F@CFE_ES_PerfLogAdd"
+        },
+        {
+          "backend": null,
+          "kind": "external_function",
+          "spelling": "CFE_EVS_SendEvent",
+          "unsupported_code": "NO_CONTROLLABLE_SEAM",
+          "unsupported_reason": "the analyzer reported CFE_EVS_SendEvent as not controllable: 'CI_LAB_Global.NetBufPtr' may be written by a call with no summary: 'CI_LAB_Global.NetBufPtr' may be written by the call: no summary describes the callee",
+          "usr": "c:@F@CFE_EVS_SendEvent"
+        },
+        {
+          "backend": null,
+          "kind": "external_function",
+          "spelling": "CFE_SB_TransmitBuffer",
+          "unsupported_code": "NO_CONTROLLABLE_SEAM",
+          "unsupported_reason": "the analyzer reported CFE_SB_TransmitBuffer as not controllable: 'CI_LAB_Global.NetBufPtr' may be written by a call with no summary: 'CI_LAB_Global.NetBufPtr' may be written by the call: no summary describes the callee",
+          "usr": "c:@F@CFE_SB_TransmitBuffer"
+        },
+        {
+          "backend": null,
+          "kind": "external_function",
+          "spelling": "CFE_SB_TransmitBuffer",
+          "unsupported_code": "NO_CONTROLLABLE_SEAM",
+          "unsupported_reason": "the analyzer reported CFE_SB_TransmitBuffer as not controllable: 'CI_LAB_Global.NetBufPtr' may be the unknown memory written here: 'CI_LAB_Global.NetBufPtr' may be the unknown memory written here",
+          "usr": "c:@F@CFE_SB_TransmitBuffer"
+        },
+        {
+          "backend": null,
+          "kind": "external_function",
+          "spelling": "CI_LAB_DecodeInputMessage",
+          "unsupported_code": "NO_CONTROLLABLE_SEAM",
+          "unsupported_reason": "the analyzer reported CI_LAB_DecodeInputMessage as not controllable: 'CI_LAB_Global.NetBufPtr' may be written by a call with no summary: 'CI_LAB_Global.NetBufPtr' may be written by the call: no summary describes the callee",
+          "usr": "c:@F@CI_LAB_DecodeInputMessage"
+        },
+        {
+          "backend": null,
+          "kind": "external_function",
+          "spelling": "CI_LAB_DecodeInputMessage",
+          "unsupported_code": "NO_CONTROLLABLE_SEAM",
+          "unsupported_reason": "the analyzer reported CI_LAB_DecodeInputMessage as not controllable: 'CI_LAB_Global.NetBufPtr' may be the unknown memory written here: 'CI_LAB_Global.NetBufPtr' may be the unknown memory written here",
+          "usr": "c:@F@CI_LAB_DecodeInputMessage"
+        },
+        {
+          "backend": null,
+          "kind": "external_function",
+          "spelling": "OS_SocketRecvFrom",
+          "unsupported_code": "NO_CONTROLLABLE_SEAM",
+          "unsupported_reason": "the analyzer reported OS_SocketRecvFrom as not controllable: 'CI_LAB_Global.NetBufPtr' may be written by a call with no summary: 'CI_LAB_Global.NetBufPtr' may be written by the call: no summary describes the callee",
+          "usr": "c:@F@OS_SocketRecvFrom"
+        },
+        {
+          "backend": null,
+          "kind": "external_function",
+          "spelling": "OS_SocketRecvFrom",
+          "unsupported_code": "NO_CONTROLLABLE_SEAM",
+          "unsupported_reason": "the analyzer reported OS_SocketRecvFrom as not controllable: 'CI_LAB_Global.NetBufPtr' may be the unknown memory written here: 'CI_LAB_Global.NetBufPtr' may be the unknown memory written here",
+          "usr": "c:@F@OS_SocketRecvFrom"
+        },
+        {
+          "backend": null,
+          "kind": "global_object",
+          "spelling": "CI_LAB_Global.NetBufPtr",
+          "unsupported_code": null,
+          "unsupported_reason": null,
+          "usr": "sha256:58e45a0013286247ad8cca58967e444df05b8b85910b2a48064f37d7f645fc6b"
+        },
+        {
+          "backend": null,
+          "kind": "none",
+          "spelling": "CI_LAB_Global.NetBufPtr",
+          "unsupported_code": null,
+          "unsupported_reason": null,
+          "usr": "sha256:06e7c3b559678c022cd77ae0df175f05517e9ff32501765429c62134769f5878"
+        },
+        {
+          "backend": null,
+          "kind": "output_parameter",
+          "spelling": "CI_LAB_GetInputBuffer",
+          "unsupported_code": "BACKEND_NOT_IMPLEMENTED",
+          "unsupported_reason": "backend 'cfs-utstub' was requested but cannot render CI_LAB_GetInputBuffer.",
+          "usr": "c:@F@CI_LAB_GetInputBuffer"
+        }
+      ],
+      "skip_reason": "",
+      "spec_id": "f4277d4c5fc546f6cc9c46bbda27b3aa"
+    },
+    {
+      "active": true,
+      "annotation": {
+        "location": "apps/ci_lab/unit-test/annotations/ci_lab_app.toml:5",
+        "name": "init_reports_every_registration_failure",
+        "origin": "sidecar",
+        "review_state": "reviewed"
+      },
+      "arrangements": [
+        {
+          "backend": "cfs-utstub",
+          "effect": "return_value",
+          "provenance": "annotation",
+          "provenance_detail": "sidecar apps/ci_lab/unit-test/annotations/ci_lab_app.toml:5 covmock:test init_reports_every_registration_failure",
+          "rendered": true,
+          "requires_human_choice": false,
+          "routing": "mock_backend",
+          "seam": "c:@F@CFE_EVS_Register",
+          "superseded_spelling": "<nonzero>",
+          "value": "-1"
+        },
+        {
+          "backend": "cfs-utstub",
+          "effect": "return_value",
+          "provenance": "annotation",
+          "provenance_detail": "sidecar apps/ci_lab/unit-test/annotations/ci_lab_app.toml:5 covmock:test init_reports_every_registration_failure",
+          "rendered": true,
+          "requires_human_choice": false,
+          "routing": "mock_backend",
+          "seam": "c:@F@CFE_SB_Subscribe",
+          "superseded_spelling": null,
+          "value": "-1"
+        },
+        {
+          "backend": "cfs-utstub",
+          "effect": "return_value",
+          "provenance": "annotation",
+          "provenance_detail": "sidecar apps/ci_lab/unit-test/annotations/ci_lab_app.toml:5 covmock:test init_reports_every_registration_failure",
+          "rendered": true,
+          "requires_human_choice": false,
+          "routing": "mock_backend",
+          "seam": "c:@F@OS_SocketOpen",
+          "superseded_spelling": null,
+          "value": "-1"
+        }
+      ],
+      "callable": {
+        "defining_header": "apps/ci_lab/fsw/src/ci_lab_app.h",
+        "display_name": "CI_LAB_TaskInit()",
+        "language_linkage": "c",
+        "linkage": "external",
+        "namespaces": [],
+        "overload_signature": "()",
+        "owner": null,
+        "qualified_name": "CI_LAB_TaskInit",
+        "return_type": "void",
+        "unqualified_name": "CI_LAB_TaskInit",
+        "usr": "c:@F@CI_LAB_TaskInit"
+      },
+      "case": "init_reports_every_registration_failure",
+      "confidence": "medium",
+      "confidence_limited_by": [
+        "constraint"
+      ],
+      "desired_outcome": "line_executed",
+      "diagnostics": [
+        {
+          "code": "ANNOTATION_SUPPLIED_VALUE",
+          "details": [
+            "sidecar apps/ci_lab/unit-test/annotations/ci_lab_app.toml:5 covmock:test init_reports_every_registration_failure"
+          ],
+          "explanation": "the annotation chose -1 where the analyzer established only <nonzero>",
+          "remedy": null,
+          "severity": "note",
+          "span": {
+            "column": 1,
+            "file": "apps/ci_lab/unit-test/annotations/ci_lab_app.toml",
+            "line": 5
+          }
+        },
+        {
+          "code": "CONSTRAINT_PLACEHOLDER",
+          "details": [],
+          "explanation": "the if at apps/ci_lab/fsw/src/ci_lab_app.c:114:9 needs <nonzero>. The analysis establishes the class; it never picks a semantically named constant because the name looks right. A covmock:test annotation or an engineer chooses the value.",
+          "remedy": null,
+          "severity": "note",
+          "span": null
+        },
+        {
+          "code": "READINESS",
+          "details": [
+            "exact_constraint: placeholder class: 1 solution(s): 0 exact, 1 placeholder, 0 unsupported, 0 unsatisfiable; a placeholder class names what is excluded and defers the choice to an annotation or an engineer"
+          ],
+          "explanation": "placeholder arrangement: missing exact_constraint. The slice, endpoints and constraint above say what is known; what is missing needs an annotation, an adapter, or an engineer.",
+          "remedy": null,
+          "severity": "warning",
+          "span": null
+        }
+      ],
+      "expectations": [
+        {
+          "asserted": true,
+          "backend": "cfs-utstub",
+          "count": 1,
+          "kind": "call_count_equals",
+          "missing_capabilities": [],
+          "observable": true,
+          "parameter_index": null,
+          "provenance": "annotation",
+          "provenance_detail": "sidecar apps/ci_lab/unit-test/annotations/ci_lab_app.toml:5 covmock:test init_reports_every_registration_failure",
+          "seam": "c:@F@CFE_ES_WriteToSysLog",
+          "subject": "CFE_ES_WriteToSysLog",
+          "unobservable_reason": null,
+          "value": null
+        },
+        {
+          "asserted": true,
+          "backend": "cfs-utstub",
+          "count": 5,
+          "kind": "call_count_equals",
+          "missing_capabilities": [],
+          "observable": true,
+          "parameter_index": null,
+          "provenance": "annotation",
+          "provenance_detail": "sidecar apps/ci_lab/unit-test/annotations/ci_lab_app.toml:5 covmock:test init_reports_every_registration_failure",
+          "seam": "c:@F@CFE_EVS_SendEvent",
+          "subject": "CFE_EVS_SendEvent",
+          "unobservable_reason": null,
+          "value": null
+        },
+        {
+          "asserted": true,
+          "backend": "cfs-utstub",
+          "count": 0,
+          "kind": "call_count_equals",
+          "missing_capabilities": [],
+          "observable": true,
+          "parameter_index": null,
+          "provenance": "annotation",
+          "provenance_detail": "sidecar apps/ci_lab/unit-test/annotations/ci_lab_app.toml:5 covmock:test init_reports_every_registration_failure",
+          "seam": "c:@F@OS_SocketBind",
+          "subject": "OS_SocketBind",
+          "unobservable_reason": null,
+          "value": null
+        }
+      ],
+      "fixture": "CI_LAB_TaskInit_covmock",
+      "gap": {
+        "block": null,
+        "branch": null,
+        "condition": "status != CFE_SUCCESS",
+        "evaluated": false,
+        "kind": "line",
+        "line": 116,
+        "origin": "lcov_da",
+        "source_file": "apps/ci_lab/fsw/src/ci_lab_app.c"
+      },
+      "invocation": {
+        "arguments": [],
+        "call_emitted": true,
+        "placeholder_parameters": [],
+        "setup_statements": [],
+        "unresolved_parameters": []
+      },
+      "missing_facts": [
+        "READINESS: placeholder arrangement: missing exact_constraint. The slice, endpoints and constraint above say what is known; what is missing needs an annotation, an adapter, or an engineer."
+      ],
+      "name": "init_reports_every_registration_failure",
+      "output": "tests/test_CI_LAB_TaskInit.c",
+      "requirement_ids": [
+        "CI-INIT-ERR"
+      ],
+      "review_state": "reviewed",
+      "seams": [
+        {
+          "backend": "cfs-utstub",
+          "kind": "external_function",
+          "spelling": "CFE_ES_WriteToSysLog(const char *, ...)",
+          "unsupported_code": null,
+          "unsupported_reason": null,
+          "usr": "c:@F@CFE_ES_WriteToSysLog"
+        },
+        {
+          "backend": "cfs-utstub",
+          "kind": "external_function",
+          "spelling": "CFE_EVS_Register",
+          "unsupported_code": null,
+          "unsupported_reason": null,
+          "usr": "c:@F@CFE_EVS_Register"
+        },
+        {
+          "backend": "cfs-utstub",
+          "kind": "external_function",
+          "spelling": "CFE_EVS_SendEvent(unsigned short, unsigned short, const char *, ...)",
+          "unsupported_code": null,
+          "unsupported_reason": null,
+          "usr": "c:@F@CFE_EVS_SendEvent"
+        },
+        {
+          "backend": "cfs-utstub",
+          "kind": "external_function",
+          "spelling": "CFE_SB_Subscribe(CFE_SB_MsgId_t, unsigned int)",
+          "unsupported_code": null,
+          "unsupported_reason": null,
+          "usr": "c:@F@CFE_SB_Subscribe"
+        },
+        {
+          "backend": "cfs-utstub",
+          "kind": "external_function",
+          "spelling": "OS_SocketBind(unsigned int, const OS_SockAddr_t *)",
+          "unsupported_code": null,
+          "unsupported_reason": null,
+          "usr": "c:@F@OS_SocketBind"
+        },
+        {
+          "backend": "cfs-utstub",
+          "kind": "external_function",
+          "spelling": "OS_SocketOpen(unsigned int *, OS_SocketDomain_t, OS_SocketType_t)",
+          "unsupported_code": null,
+          "unsupported_reason": null,
+          "usr": "c:@F@OS_SocketOpen"
+        }
+      ],
+      "skip_reason": "",
+      "spec_id": "9a24062c0b1c63daa987b425e01348c2"
+    },
+    {
+      "active": true,
+      "annotation": {
+        "location": "apps/ci_lab/unit-test/annotations/ci_lab_app.toml:6",
+        "name": "init_reports_pipe_and_bind_failures",
+        "origin": "sidecar",
+        "review_state": "reviewed"
+      },
+      "arrangements": [
+        {
+          "backend": "cfs-utstub",
+          "effect": "return_value",
+          "provenance": "annotation",
+          "provenance_detail": "sidecar apps/ci_lab/unit-test/annotations/ci_lab_app.toml:6 covmock:test init_reports_pipe_and_bind_failures",
+          "rendered": true,
+          "requires_human_choice": false,
+          "routing": "mock_backend",
+          "seam": "c:@F@CFE_SB_CreatePipe",
+          "superseded_spelling": "<nonzero>",
+          "value": "-1"
+        },
+        {
+          "backend": "cfs-utstub",
+          "effect": "return_value",
+          "provenance": "annotation",
+          "provenance_detail": "sidecar apps/ci_lab/unit-test/annotations/ci_lab_app.toml:6 covmock:test init_reports_pipe_and_bind_failures",
+          "rendered": true,
+          "requires_human_choice": false,
+          "routing": "mock_backend",
+          "seam": "c:@F@OS_SocketBind",
+          "superseded_spelling": null,
+          "value": "-1"
+        }
+      ],
+      "callable": {
+        "defining_header": "apps/ci_lab/fsw/src/ci_lab_app.h",
+        "display_name": "CI_LAB_TaskInit()",
+        "language_linkage": "c",
+        "linkage": "external",
+        "namespaces": [],
+        "overload_signature": "()",
+        "owner": null,
+        "qualified_name": "CI_LAB_TaskInit",
+        "return_type": "void",
+        "unqualified_name": "CI_LAB_TaskInit",
+        "usr": "c:@F@CI_LAB_TaskInit"
+      },
+      "case": "init_reports_pipe_and_bind_failures",
+      "confidence": "medium",
+      "confidence_limited_by": [
+        "constraint"
+      ],
+      "desired_outcome": "line_executed",
+      "diagnostics": [
+        {
+          "code": "ANNOTATION_SUPPLIED_VALUE",
+          "details": [
+            "sidecar apps/ci_lab/unit-test/annotations/ci_lab_app.toml:6 covmock:test init_reports_pipe_and_bind_failures"
+          ],
+          "explanation": "the annotation chose -1 where the analyzer established only <nonzero>",
+          "remedy": null,
+          "severity": "note",
+          "span": {
+            "column": 1,
+            "file": "apps/ci_lab/unit-test/annotations/ci_lab_app.toml",
+            "line": 6
+          }
+        },
+        {
+          "code": "CONSTRAINT_PLACEHOLDER",
+          "details": [],
+          "explanation": "the if at apps/ci_lab/fsw/src/ci_lab_app.c:120:9 needs <nonzero>. The analysis establishes the class; it never picks a semantically named constant because the name looks right. A covmock:test annotation or an engineer chooses the value.",
+          "remedy": null,
+          "severity": "note",
+          "span": null
+        },
+        {
+          "code": "READINESS",
+          "details": [
+            "exact_constraint: placeholder class: 1 solution(s): 0 exact, 1 placeholder, 0 unsupported, 0 unsatisfiable; a placeholder class names what is excluded and defers the choice to an annotation or an engineer"
+          ],
+          "explanation": "placeholder arrangement: missing exact_constraint. The slice, endpoints and constraint above say what is known; what is missing needs an annotation, an adapter, or an engineer.",
+          "remedy": null,
+          "severity": "warning",
+          "span": null
+        }
+      ],
+      "expectations": [
+        {
+          "asserted": true,
+          "backend": "cfs-utstub",
+          "count": 3,
+          "kind": "call_count_equals",
+          "missing_capabilities": [],
+          "observable": true,
+          "parameter_index": null,
+          "provenance": "annotation",
+          "provenance_detail": "sidecar apps/ci_lab/unit-test/annotations/ci_lab_app.toml:6 covmock:test init_reports_pipe_and_bind_failures",
+          "seam": "c:@F@CFE_EVS_SendEvent",
+          "subject": "CFE_EVS_SendEvent",
+          "unobservable_reason": null,
+          "value": null
+        },
+        {
+          "asserted": true,
+          "backend": "cfs-utstub",
+          "count": 0,
+          "kind": "call_count_equals",
+          "missing_capabilities": [],
+          "observable": true,
+          "parameter_index": null,
+          "provenance": "annotation",
+          "provenance_detail": "sidecar apps/ci_lab/unit-test/annotations/ci_lab_app.toml:6 covmock:test init_reports_pipe_and_bind_failures",
+          "seam": "c:@F@CFE_SB_Subscribe",
+          "subject": "CFE_SB_Subscribe",
+          "unobservable_reason": null,
+          "value": null
+        }
+      ],
+      "fixture": "CI_LAB_TaskInit_covmock",
+      "gap": {
+        "block": null,
+        "branch": null,
+        "condition": "status == CFE_SUCCESS",
+        "evaluated": false,
+        "kind": "line",
+        "line": 151,
+        "origin": "lcov_da",
+        "source_file": "apps/ci_lab/fsw/src/ci_lab_app.c"
+      },
+      "invocation": {
+        "arguments": [],
+        "call_emitted": true,
+        "placeholder_parameters": [],
+        "setup_statements": [],
+        "unresolved_parameters": []
+      },
+      "missing_facts": [
+        "READINESS: placeholder arrangement: missing exact_constraint. The slice, endpoints and constraint above say what is known; what is missing needs an annotation, an adapter, or an engineer."
+      ],
+      "name": "init_reports_pipe_and_bind_failures",
+      "output": "tests/test_CI_LAB_TaskInit.c",
+      "requirement_ids": [
+        "CI-INIT-ERR"
+      ],
+      "review_state": "reviewed",
+      "seams": [
+        {
+          "backend": "cfs-utstub",
+          "kind": "external_function",
+          "spelling": "CFE_EVS_SendEvent(unsigned short, unsigned short, const char *, ...)",
+          "unsupported_code": null,
+          "unsupported_reason": null,
+          "usr": "c:@F@CFE_EVS_SendEvent"
+        },
+        {
+          "backend": "cfs-utstub",
+          "kind": "external_function",
+          "spelling": "CFE_SB_CreatePipe",
+          "unsupported_code": null,
+          "unsupported_reason": null,
+          "usr": "c:@F@CFE_SB_CreatePipe"
+        },
+        {
+          "backend": "cfs-utstub",
+          "kind": "external_function",
+          "spelling": "CFE_SB_Subscribe(CFE_SB_MsgId_t, unsigned int)",
+          "unsupported_code": null,
+          "unsupported_reason": null,
+          "usr": "c:@F@CFE_SB_Subscribe"
+        },
+        {
+          "backend": "cfs-utstub",
+          "kind": "external_function",
+          "spelling": "OS_SocketBind(unsigned int, const OS_SockAddr_t *)",
+          "unsupported_code": null,
+          "unsupported_reason": null,
+          "usr": "c:@F@OS_SocketBind"
+        }
+      ],
+      "skip_reason": "",
+      "spec_id": "5ca3631f9fe168535572c7436f6f1bb8"
+    },
+    {
+      "active": true,
+      "annotation": {
+        "location": "apps/ci_lab/unit-test/annotations/ci_lab_app.toml:3",
+        "name": "init_subscribes_and_binds",
+        "origin": "sidecar",
+        "review_state": "reviewed"
+      },
+      "arrangements": [],
+      "callable": {
+        "defining_header": "apps/ci_lab/fsw/src/ci_lab_app.h",
+        "display_name": "CI_LAB_TaskInit()",
+        "language_linkage": "c",
+        "linkage": "external",
+        "namespaces": [],
+        "overload_signature": "()",
+        "owner": null,
+        "qualified_name": "CI_LAB_TaskInit",
+        "return_type": "void",
+        "unqualified_name": "CI_LAB_TaskInit",
+        "usr": "c:@F@CI_LAB_TaskInit"
+      },
+      "case": "init_subscribes_and_binds",
+      "confidence": "medium",
+      "confidence_limited_by": [
+        "outcome_identity"
+      ],
+      "desired_outcome": "line_executed",
+      "diagnostics": [
+        {
+          "code": "NO_CONTROLLING_DECISION",
+          "details": [],
+          "explanation": "no decision arm in CI_LAB_TaskInit() encloses apps/ci_lab/fsw/src/ci_lab_app.c:109 syntactically. Whether an earlier exit guards the line is a control-dependence question answered by the M4 slice (#30); the line otherwise executes whenever the function does.",
+          "remedy": null,
+          "severity": "note",
+          "span": null
+        }
+      ],
+      "expectations": [
+        {
+          "asserted": true,
+          "backend": "cfs-utstub",
+          "count": 1,
+          "kind": "call_count_equals",
+          "missing_capabilities": [],
+          "observable": true,
+          "parameter_index": null,
+          "provenance": "annotation",
+          "provenance_detail": "sidecar apps/ci_lab/unit-test/annotations/ci_lab_app.toml:3 covmock:test init_subscribes_and_binds",
+          "seam": "c:@F@CFE_EVS_SendEvent",
+          "subject": "CFE_EVS_SendEvent",
+          "unobservable_reason": null,
+          "value": null
+        },
+        {
+          "asserted": true,
+          "backend": "cfs-utstub",
+          "count": 3,
+          "kind": "call_count_equals",
+          "missing_capabilities": [],
+          "observable": true,
+          "parameter_index": null,
+          "provenance": "annotation",
+          "provenance_detail": "sidecar apps/ci_lab/unit-test/annotations/ci_lab_app.toml:3 covmock:test init_subscribes_and_binds",
+          "seam": "c:@F@CFE_SB_Subscribe",
+          "subject": "CFE_SB_Subscribe",
+          "unobservable_reason": null,
+          "value": null
+        },
+        {
+          "asserted": true,
+          "backend": "cfs-utstub",
+          "count": 1,
+          "kind": "call_count_equals",
+          "missing_capabilities": [],
+          "observable": true,
+          "parameter_index": null,
+          "provenance": "annotation",
+          "provenance_detail": "sidecar apps/ci_lab/unit-test/annotations/ci_lab_app.toml:3 covmock:test init_subscribes_and_binds",
+          "seam": "c:@F@OS_SocketBind",
+          "subject": "OS_SocketBind",
+          "unobservable_reason": null,
+          "value": null
+        }
+      ],
+      "fixture": "CI_LAB_TaskInit_covmock",
+      "gap": {
+        "block": null,
+        "branch": null,
+        "condition": "",
+        "evaluated": false,
+        "kind": "line",
+        "line": 109,
+        "origin": "lcov_da",
+        "source_file": "apps/ci_lab/fsw/src/ci_lab_app.c"
+      },
+      "invocation": {
+        "arguments": [],
+        "call_emitted": true,
+        "placeholder_parameters": [],
+        "setup_statements": [],
+        "unresolved_parameters": []
+      },
+      "missing_facts": [],
+      "name": "init_subscribes_and_binds",
+      "output": "tests/test_CI_LAB_TaskInit.c",
+      "requirement_ids": [],
+      "review_state": "reviewed",
+      "seams": [
+        {
+          "backend": "cfs-utstub",
+          "kind": "external_function",
+          "spelling": "CFE_EVS_SendEvent(unsigned short, unsigned short, const char *, ...)",
+          "unsupported_code": null,
+          "unsupported_reason": null,
+          "usr": "c:@F@CFE_EVS_SendEvent"
+        },
+        {
+          "backend": "cfs-utstub",
+          "kind": "external_function",
+          "spelling": "CFE_SB_Subscribe(CFE_SB_MsgId_t, unsigned int)",
+          "unsupported_code": null,
+          "unsupported_reason": null,
+          "usr": "c:@F@CFE_SB_Subscribe"
+        },
+        {
+          "backend": "cfs-utstub",
+          "kind": "external_function",
+          "spelling": "OS_SocketBind(unsigned int, const OS_SockAddr_t *)",
+          "unsupported_code": null,
+          "unsupported_reason": null,
+          "usr": "c:@F@OS_SocketBind"
+        }
+      ],
+      "skip_reason": "",
+      "spec_id": "e01baf729c63c229135d6534de10ea04"
+    },
+    {
+      "active": true,
+      "annotation": {
+        "location": "apps/ci_lab/unit-test/annotations/ci_lab_app.toml:2",
+        "name": "delete_callback_closes_socket",
+        "origin": "sidecar",
+        "review_state": "reviewed"
+      },
+      "arrangements": [],
+      "callable": {
+        "defining_header": null,
+        "display_name": "CI_LAB_delete_callback()",
+        "language_linkage": "c",
+        "linkage": "external",
+        "namespaces": [],
+        "overload_signature": "()",
+        "owner": null,
+        "qualified_name": "CI_LAB_delete_callback",
+        "return_type": "void",
+        "unqualified_name": "CI_LAB_delete_callback",
+        "usr": "c:@F@CI_LAB_delete_callback"
+      },
+      "case": "delete_callback_closes_socket",
+      "confidence": "medium",
+      "confidence_limited_by": [
+        "outcome_identity"
+      ],
+      "desired_outcome": "line_executed",
+      "diagnostics": [
+        {
+          "code": "NO_CONTROLLING_DECISION",
+          "details": [],
+          "explanation": "no decision arm in CI_LAB_delete_callback() encloses apps/ci_lab/fsw/src/ci_lab_app.c:94 syntactically. Whether an earlier exit guards the line is a control-dependence question answered by the M4 slice (#30); the line otherwise executes whenever the function does.",
+          "remedy": null,
+          "severity": "note",
+          "span": null
+        }
+      ],
+      "expectations": [
+        {
+          "asserted": true,
+          "backend": "cfs-utstub",
+          "count": 1,
+          "kind": "call_count_equals",
+          "missing_capabilities": [],
+          "observable": true,
+          "parameter_index": null,
+          "provenance": "annotation",
+          "provenance_detail": "sidecar apps/ci_lab/unit-test/annotations/ci_lab_app.toml:2 covmock:test delete_callback_closes_socket",
+          "seam": "c:@F@OS_close",
+          "subject": "OS_close",
+          "unobservable_reason": null,
+          "value": null
+        }
+      ],
+      "fixture": "CI_LAB_delete_callback_covmock",
+      "gap": {
+        "block": null,
+        "branch": null,
+        "condition": "",
+        "evaluated": false,
+        "kind": "line",
+        "line": 94,
+        "origin": "lcov_da",
+        "source_file": "apps/ci_lab/fsw/src/ci_lab_app.c"
+      },
+      "invocation": {
+        "arguments": [],
+        "call_emitted": true,
+        "placeholder_parameters": [],
+        "setup_statements": [],
+        "unresolved_parameters": []
+      },
+      "missing_facts": [],
+      "name": "delete_callback_closes_socket",
+      "output": "tests/test_CI_LAB_delete_callback.c",
+      "requirement_ids": [],
+      "review_state": "reviewed",
+      "seams": [
+        {
+          "backend": "cfs-utstub",
+          "kind": "external_function",
+          "spelling": "OS_close(unsigned int)",
+          "unsupported_code": null,
+          "unsupported_reason": null,
+          "usr": "c:@F@OS_close"
+        }
+      ],
+      "skip_reason": "",
+      "spec_id": "95f2aca9a7f99899bd9914b79bc3e86e"
+    }
+  ],
+  "tool": {
+    "name": "covmock",
+    "version": "0.1.0.dev0"
+  }
+}
